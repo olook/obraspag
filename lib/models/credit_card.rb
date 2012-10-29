@@ -1,5 +1,5 @@
 module Braspag
-    class Payment
+    class CreditCard
 
     end
 end
