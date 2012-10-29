@@ -6,10 +6,16 @@ module Braspag
             @env = env
         end
 
-        def call_webservice(body)
+        def call_webservice(method, body)
+            client = Savon::Client.new wsdl_url
+            client.http.read_timeout = 10000
+            response = client.request method do
+                soap.body = body
+            end
+            response.to_hash
         end
 
-        def url_for
+        def wsdl_url
             production? ? PRODUCTION_URL : HOMOLOG_URL
         end
 
