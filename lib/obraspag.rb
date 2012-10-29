@@ -1,1 +1,1 @@
-require 'braspag/connection'
+require 'obraspag/connection'
