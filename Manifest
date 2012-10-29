@@ -1,4 +1,10 @@
+Gemfile
+Gemfile.lock
+Manifest
 README.rdoc
 Rakefile
+lib/braspag/connection.rb
 lib/obraspag.rb
-Manifest
+obraspag.gemspec
+spec/braspag/connection_spec.rb
+spec/spec_helper.rb
