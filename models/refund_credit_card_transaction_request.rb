@@ -1,0 +1,2 @@
+class RefundCreditCardTransactionRequest
+end
