@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Olook"]
+  s.authors = ["Olook", "Vinícius Monteiro", "Tiago Almeida", "Matheus Bodo"]
   s.date = "2012-10-29"
   s.description = "API Braspag"
   s.email = "development@olook.com.br"
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.summary = "API Braspag"
 
   s.add_dependency 'savon', '>= 0.9.9'
-  s.add_dependency 'httpi', '>= 0.9.6'
+  s.add_dependency 'httpi', '>= 1.1.1'
   s.add_dependency 'json', '>= 1.6.1'
   s.add_dependency 'nokogiri', '>= 1.4.7'
 
