@@ -21,7 +21,7 @@ module Braspag
     end
 
     def to_hash
-      "TESTE"
+      self.attributes
     end
   end
 end
