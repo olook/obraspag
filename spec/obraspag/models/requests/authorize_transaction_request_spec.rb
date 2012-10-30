@@ -1,10 +1,14 @@
 require 'spec_helper'
 
 describe Braspag::AuthorizeTransactionRequest do
+    let(:request_object) {Braspag::AuthorizeTransactionRequest.new}
+    it "should be invalid without attributes" do
+      request_object.valid?.should be_false
+    end
 
-    it "should create with correct params" do
-        request_object = Braspag::AuthorizeTransactionRequest.build_request_object
-        request_object.should be_an_instance_of(Braspag::AuthorizeTransactionRequest)
+    it "should be invalid without attributes" do
+      request_object.request_id = "1234"
+      request_object.valid?.should be_true
     end
 
 end
