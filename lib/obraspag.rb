@@ -37,7 +37,7 @@ module Braspag
     :col_diners => 66, # Diners
     # INTERNACIONAL
     :paypal_express => 35, # PayPal Express Checkout
-    # HOMOLOGATION
+    # STAGING
     :braspag => 997
   }
 
