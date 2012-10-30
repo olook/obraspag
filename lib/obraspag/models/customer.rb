@@ -19,26 +19,8 @@ module Braspag
         "CustomerIdentity" => self.id.to_s,
         "CustomerName" => self.name,
         "CustomerEmail" => self.email,
-        "CustomerAddressData" => {
-          "Street" => "Rua de Casa",
-          "Number" => "123",
-          "Complement" => "",
-          "District" => "Pinheiros",
-          "ZipCode" => "05425-070",
-          "City" => "Sao Paulo",
-          "State" => "SP",
-          "Country" => "Brasil"
-        },
-        "DeliveryAddressData" => {
-          "Street" => "Rua de Casa",
-          "Number" => "123",
-          "Complement" => "",
-          "District" => "Pinheiros",
-          "ZipCode" => "05425-070",
-          "City" => "Sao Paulo",
-          "State" => "SP",
-          "Country" => "Brasil"
-        }
+        "CustomerAddressData" => self.customer_address.to_hash,
+        "DeliveryAddressData" => self.delivery_address.to_hash
       }      
     end
 
