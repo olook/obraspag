@@ -11,8 +11,6 @@ module Braspag
     validates :id, :presence => true
     validates :name, :presence => true
     validates :email, :presence => true
-    validates :customer_address, :presence => true
-    validates :delivery_address, :presence => true
     
     def to_hash
       {

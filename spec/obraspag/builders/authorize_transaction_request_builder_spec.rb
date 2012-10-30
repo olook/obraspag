@@ -45,7 +45,7 @@ describe Braspag::AuthorizeTransactionRequestBuilder do
 
   def order_builder
     builder = Braspag::OrderBuilder.new
-    builder.with_order_number(1234)
+    builder.with_number(1234)
     .with_payment_method(Braspag::PAYMENT_METHOD[:braspag])
     .for_customer(customer_builder.build)
     builder

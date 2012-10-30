@@ -9,9 +9,9 @@ describe Braspag::Order do
         order.valid?.should eq(true)
       end
 
-	    it "should validate presence of order_number" do
+	    it "should validate presence of number" do
 	    	order = create_order
-	    	order.order_number = nil
+	    	order.number = nil
         order.valid?.should eq(false)
 	    end
 
@@ -32,7 +32,7 @@ describe Braspag::Order do
 
   def create_order
   	order = Braspag::Order.new
-  	order.order_number = 1234
+  	order.number = 1234
   	order.payment_method = Braspag::PAYMENT_METHOD[:braspag]
   	order.customer = Braspag::Customer.new
     order

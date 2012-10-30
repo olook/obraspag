@@ -11,8 +11,8 @@ module Braspag
       @order
     end
 
-     def with_order_number(order_number)
-      @order.order_number = order_number
+     def with_number(order_number)
+      @order.number = order_number
       self
     end
 

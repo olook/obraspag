@@ -2,7 +2,7 @@ module Braspag
   class Order
     include ::ActiveAttr::Model
 
-    attribute :order_number
+    attribute :number
     attribute :payment_method
     attribute :customer
     attribute :merchant_id

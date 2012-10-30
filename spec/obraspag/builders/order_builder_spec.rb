@@ -15,7 +15,7 @@ describe Braspag::OrderBuilder do
     subject { complete_builder }
 
     it "should raise exception when Order is not valid" do
-      subject.with_order_number(nil)
+      subject.with_number(nil)
       expect { subject.build }.to raise_error
     end
 
@@ -28,7 +28,7 @@ describe Braspag::OrderBuilder do
 
   def complete_builder
     builder = Braspag::OrderBuilder.new
-    builder.with_order_number(1234)
+    builder.with_number(1234)
     .with_payment_method(Braspag::PAYMENT_METHOD[:braspag])
     .for_customer(customer_builder.build)
     builder
