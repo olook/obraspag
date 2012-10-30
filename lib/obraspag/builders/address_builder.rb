@@ -50,10 +50,5 @@ module Braspag
       self
     end
 
-    def with_address_type(address_type)
-      @addres.address_type = address_type
-      self
-    end
-
   end
 end
