@@ -21,6 +21,7 @@ module Braspag
     end
 
     def to_hash
+      #TODO: "ins0:CreditCardDataRequest" ???
       {
         "request" => {
           "RequestId" => self.request_id,
