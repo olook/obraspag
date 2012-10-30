@@ -1,7 +1,7 @@
 module Braspag
     class CreditCard
-        include ::ActiveAttr::Model
         attr_accessor :holder_name, :number, :month, :year, :security_code, :number_of_payments, :payment_plan, :transaction_type
+        include ::ActiveAttr::Model
 
         class ExpiratorValidator < ActiveModel::EachValidator
             def validate_each(record, attribute, value)
@@ -17,7 +17,6 @@ module Braspag
                 end
             end
         end
-
 
         validates :holder_name, :length => {:minimum => 1, :maximum => 100, :on => :authorize}
         validates :number, :presence => { :on => :authorize }
