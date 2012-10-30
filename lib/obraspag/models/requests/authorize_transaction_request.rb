@@ -7,5 +7,6 @@ module Braspag
       @payment_data_collection = []
       @customer_data = []
     end
+
   end
 end
