@@ -1,7 +1,5 @@
 module Braspag
     class CreditCard
-        require 'pry'
-        binding.pry
         include ::ActiveAttr::Model
         attr_accessor :holder_name, :number, :month, :year, :verification_value, :id, :currency, :security_code, :number_of_payments
 
