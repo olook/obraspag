@@ -1,5 +1,6 @@
 require "rubygems"
 require "active_attr"
+require 'obraspag/connection'
 
 require "./lib/obraspag/connection"
 require "./lib/obraspag/models/payments/payment"
@@ -9,6 +10,8 @@ Dir["./lib/obraspag/models/requests/*.rb"].each {|file| require file }
 Dir["./lib/obraspag/models/payments/*.rb"].each {|file| require file }
 
 module Braspag
+
+  CONTRACT_VERSION = '1.9'
 
   PAYMENT_METHOD = {
     #CARDS - BRASIL
