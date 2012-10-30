@@ -20,6 +20,14 @@ module Braspag
 
     def with_order_number(order_number)
       @authorize_transaction_request.order.order_number = order_number
+      self
     end
+
+    def with_payment_method(payment_method)
+      @authorize_transaction_request.order.payment_method = payment_method
+      self
+    end
+
+    
   end
 end
