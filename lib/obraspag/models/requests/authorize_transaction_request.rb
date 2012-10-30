@@ -26,7 +26,7 @@ module Braspag
           "RequestId" => self.request_id,
           "Version" =>self.version,
           "OrderData" => self.order_data.to_hash,
-          "CustomerData" => self.customer_data,
+          "CustomerData" => self.customer_data.to_hash,
           "PaymentDataCollection" => {
             "PaymentDataRequest" => { 
               "PaymentMethod" => "997",
