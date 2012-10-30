@@ -1,6 +1,7 @@
 require "rubygems"
 require "active_attr"
 
+require "./lib/obraspag/webservice"
 require "./lib/obraspag/connection"
 require "./lib/obraspag/models/payments/payment"
 Dir["./lib/obraspag/builders/*.rb"].each {|file| require file }
