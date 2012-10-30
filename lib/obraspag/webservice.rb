@@ -24,12 +24,8 @@ module Braspag
   	private
 
   	def call_webservice(method, request)
-  		if request.valid?
-    		body = request.to_hash
-    		@connection.call_webservice(method, body)
-    	else
-    		#TODO Raise exception
-    	end
+  		body = request.to_hash
+  		@connection.call_webservice(method, body)
   	end
   end
 end

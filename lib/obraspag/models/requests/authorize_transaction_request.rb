@@ -6,6 +6,7 @@ module Braspag
       @order_data = []
       @payment_data_collection = []
       @customer_data = []
+      self.version = '1.0'
     end
   end
 end
