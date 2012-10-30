@@ -3,18 +3,16 @@ module Braspag
     include ::ActiveAttr::Model
 
     attribute :number
-    attribute :payment_method
-    attribute :customer
     attribute :merchant_id
 
-    attr_accessor :number, :payment_method, :customer, :merchant_id
+    attr_accessor :number, :merchant_id
 
     validates :number, :presence => true
     validates :payment_method, :presence => true
     validates :customer, :presence => true
 
-    def initialize
-      @customer = Customer.new
+    def initialize(number)
+      @number = number
       @merchant_id = "540BA6EE-39D7-3DC1-D87D-7F82C49A3598"
     end
 
