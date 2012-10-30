@@ -10,6 +10,8 @@ Dir["./lib/obraspag/models/payments/*.rb"].each {|file| require file }
 
 module Braspag
 
+  CONTRACT_VERSION = '1.9'
+
   PAYMENT_METHOD = {
     #CARDS - BRASIL
     :amex_2p                  => 18,  # American Express 2 Party

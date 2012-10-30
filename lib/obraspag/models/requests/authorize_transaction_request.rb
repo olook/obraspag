@@ -3,15 +3,18 @@ module Braspag
   class AuthorizeTransactionRequest
 
     include ::ActiveAttr::Model
-    attr_accessor :request_id, :version, :order_data, :payment_data_collection, :customer_data
-
+    attribute :version 
+    attribute :order_data
+    attribute :payment_data_collection
+    attribute :customer_data
+    attribute :request_id
     validates :request_id, {:presence => true}
 
     def initialize
-      @order_data = Order.new
-      @payment_data_collection = []
-      @customer_data = []
-      @version = '1.0'
+      self.order_data = Order.new
+      self.payment_data_collection = []
+      self.customer_data = []
+      self.version = CONTRACT_VERSION
     end
 
   end
