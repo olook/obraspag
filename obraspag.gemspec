@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'httpi', '>= 1.1.1'
   s.add_dependency 'json', '>= 1.6.1'
   s.add_dependency 'nokogiri', '>= 1.4.7'
+  s.add_dependency 'active_attr', '>= 0.6'
 
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
