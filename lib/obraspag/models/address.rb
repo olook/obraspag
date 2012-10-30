@@ -2,6 +2,7 @@ module Braspag
   class Address
     attribute :street
     attribute :number
+    attribute :complement
     attribute :district
     attribute :zip_code
     attribute :city
@@ -13,14 +14,14 @@ module Braspag
 
     def to_hash
       {
-        "Street" => "Rua de Casa",
-        "Number" => "123",
-        "Complement" => "",
-        "District" => "Pinheiros",
-        "ZipCode" => "05425-070",
-        "City" => "Sao Paulo",
-        "State" => "SP",
-        "Country" => "Brasil"
+        "Street" => self.street,
+        "Number" => self.number,
+        "Complement" => self.complement,
+        "District" => self.district,
+        "ZipCode" => self.zip_code,
+        "City" => self.city,
+        "State" => self.state,
+        "Country" => self.country
       }      
     end
   end
