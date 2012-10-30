@@ -7,5 +7,9 @@ module Braspag
     validates :order_number, :presence => true
     validates :payment_method, :presence => true
     validates :customer, :presence => true
+
+    def initialize
+      @customer = Customer.new
+    end
   end
 end

@@ -8,7 +8,7 @@ module Braspag
     validates :request_id, {:presence => true}
 
     def initialize
-      @order_data = []
+      @order_data = Order.new
       @payment_data_collection = []
       @customer_data = []
       @version = '1.0'
