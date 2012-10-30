@@ -17,28 +17,8 @@ module Braspag
       self
     end
 
-    def with_order_number(order_number)
-      @authorize_transaction_request.order_data.order_number = order_number
-      self
-    end
-
-    def with_payment_method(payment_method)
-      @authorize_transaction_request.order_data.payment_method = payment_method
-      self
-    end
-
-    def with_customer_id(customer_id)
-      @authorize_transaction_request.order_data.customer.id = customer_id
-      self
-    end
-
-    def with_customer_name(customer_name)
-      @authorize_transaction_request.order_data.customer.name = customer_name
-      self
-    end
-
-    def with_customer_email(customer_email)
-      @authorize_transaction_request.order_data.customer.email = customer_email
+    def for_order(order)
+      @authorize_transaction_request.order_data = order
       self
     end
 
