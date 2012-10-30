@@ -8,7 +8,7 @@ Dir["./lib/obraspag/models/payments/*.rb"].each {|file| require file }
 
 module Braspag
 
-    PAYMENT_METHOD = {
+  PAYMENT_METHOD = {
     #CARDS - BRASIL
     :amex_2p                  => 18,  # American Express 2 Party
     :cielo_noauth_visa        => 71,  # Cielo webservice captura automática sem autenticação - Visa
@@ -37,7 +37,7 @@ module Braspag
     :col_diners => 66, # Diners
     # INTERNACIONAL
     :paypal_express => 35, # PayPal Express Checkout
-    # HOMOLOGATION
+    # STAGING
     :braspag => 997
   }
 
