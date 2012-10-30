@@ -1,4 +1,4 @@
-#require 'obraspag/connection'
+require 'obraspag/connection'
 require "rubygems"
 require "active_attr"
 
