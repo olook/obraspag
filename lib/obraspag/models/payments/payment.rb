@@ -7,7 +7,8 @@ module Braspag
                 "PaymentMethod"     => self.payment_method,
                 "Amount"            => self.amount,
                 "Currency"          => self.currency,
-                "Country"           => self.country
+                "Country"           => self.country,
+                :attributes! => { "ins0:AdditionalDataCollection" => { "xsi:nil" => "true" } }
             }
             payment_attrs.merge(hash)
         end
