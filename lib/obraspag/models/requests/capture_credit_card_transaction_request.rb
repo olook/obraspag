@@ -1,5 +1,5 @@
 class CaptureCreditCardTransactionRequest
 
-  include BasicObject
+  include BasicRequestObject
 
 end

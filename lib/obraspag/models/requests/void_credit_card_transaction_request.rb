@@ -1,5 +1,5 @@
 class VoidCreditCardTransactionRequest
 
-    include BasicObject
+    include BasicRequestObject
 
 end

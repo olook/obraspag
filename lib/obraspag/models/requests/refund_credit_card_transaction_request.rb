@@ -1,5 +1,5 @@
 class RefundCreditCardTransactionRequest
 
-    include BasicObject
+    include BasicRequestObject
 
 end
