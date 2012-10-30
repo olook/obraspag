@@ -1,6 +1,5 @@
 require "rubygems"
 require "active_attr"
-require 'obraspag/connection'
 
 require "./lib/obraspag/connection"
 require "./lib/obraspag/models/payments/payment"
