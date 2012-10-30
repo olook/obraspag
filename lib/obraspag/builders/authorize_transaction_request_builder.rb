@@ -22,5 +22,15 @@ module Braspag
       self
     end
 
+    def for_customer(customer)
+      @authorize_transaction_request.customer_data = customer
+      self
+    end
+
+    def with_payment_request(payment_request)
+      @authorize_transaction_request.payment_data_collection << payment_request
+      self
+    end
+
   end
 end
