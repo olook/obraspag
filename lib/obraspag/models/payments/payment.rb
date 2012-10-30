@@ -1,5 +1,15 @@
 module Braspag
-  class Payment
-    attr_accessor :holder_name, :customer_id, :payment_method, :amount, :currency, :country
-  end
+    class Payment
+        attr_accessor :customer_id, :payment_method, :amount, :currency, :country
+        def to_hash(hash)
+            payment_attrs = {
+                "CustomerId"        => self.customer_id ,
+                "PaymentMethod"     => self.payment_method,
+                "Amount"            => self.amount,
+                "Currency"          => self.currency,
+                "Country"           => self.country
+            }
+            payment_attrs.merge(hash)
+        end
+    end
 end
