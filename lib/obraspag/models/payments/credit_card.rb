@@ -19,17 +19,16 @@ module Braspag
         end
 
 
-        [:authorize].each do |check_on|
-            validates :holder_name, :length => {:minimum => 1, :maximum => 100, :on => check_on}
-
-            validates :number, :presence => { :on => check_on }
-
-            validates :month, :presence => { :on => check_on }
-            validates :month, :expirator => { :on => check_on }
-            validates :year, :presence => { :on => check_on }
-            validates :year, :expirator => { :on => check_on }
-            validates :security_code, :length => {:minimum => 1, :maximum => 4, :on => check_on }
-        end
+        validates :holder_name, :length => {:minimum => 1, :maximum => 100, :on => :authorize}
+        validates :number, :presence => { :on => :authorize }
+        validates :security_code, :presence => { :on => :authorize }
+        validates :number_of_payments, :presence => { :on => :authorize }
+        validates :payment_plan, :presence => { :on => :authorize }
+        validates :month, :presence => { :on => :authorize }
+        validates :month, :expirator => { :on => :authorize }
+        validates :year, :presence => { :on => :authorize }
+        validates :year, :expirator => { :on => :authorize }
+        validates :security_code, :length => {:minimum => 1, :maximum => 4, :on => :authorize }
 
     end
 end

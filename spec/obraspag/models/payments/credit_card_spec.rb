@@ -55,5 +55,42 @@ describe Braspag::CreditCard do
         subject.errors.messages[:month].should be(nil)
         subject.errors.messages[:year].should be(nil)
       end
+
+      it "should allow valid security_code" do
+        subject.security_code = 123
+        subject.valid?(:authorize)
+        subject.errors.messages[:security_code].should be(nil)
+      end
+
+      it "should not allow valid security_code empty" do
+        subject.security_code = ''
+        subject.valid?(:authorize)
+        subject.errors.messages[:security_code].should include("can't be blank")
+      end
+
+      it "should allow valid number_of_payments" do
+        subject.number_of_payments = 1
+        subject.valid?(:authorize)
+        subject.errors.messages[:number_of_payments].should be(nil)
+      end
+
+      it "should not allow valid number_of_payments empty" do
+        subject.number_of_payments = ''
+        subject.valid?(:authorize)
+        subject.errors.messages[:number_of_payments].should include("can't be blank")
+      end
+
+      it "should allow valid payment_plan" do
+        subject.payment_plan = 1
+        subject.valid?(:authorize)
+        subject.errors.messages[:payment_plan].should be(nil)
+      end
+
+      it "should not allow valid payment_plan empty" do
+        subject.payment_plan = ''
+        subject.valid?(:authorize)
+        subject.errors.messages[:payment_plan].should include("can't be blank")
+      end
+
     end
 end
