@@ -11,7 +11,7 @@ module Braspag
       @order_data = Order.new
       @payment_data_collection = []
       @customer_data = []
-      @version = '1.0'
+      @version = CONTRACT_VERSION
     end
 
   end
