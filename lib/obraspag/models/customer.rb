@@ -16,9 +16,9 @@ module Braspag
     
     def to_hash
       {
-        "CustomerIdentity" => "1234",
-        "CustomerName" => "Matheus",
-        "CustomerEmail" => "matheus.bodo@olook.com.br",
+        "CustomerIdentity" => self.id.to_s,
+        "CustomerName" => self.name,
+        "CustomerEmail" => self.email,
         "CustomerAddressData" => {
           "Street" => "Rua de Casa",
           "Number" => "123",
