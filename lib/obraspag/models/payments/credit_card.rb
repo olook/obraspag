@@ -1,7 +1,7 @@
 module Braspag
     class CreditCard
         include ::ActiveAttr::Model
-        attr_accessor :holder_name, :number, :month, :year, :verification_value, :id, :currency, :security_code, :number_of_payments, :payment_plan, :transaction_type, :payment_method
+        attr_accessor :holder_name, :number, :month, :year, :security_code, :number_of_payments, :payment_plan, :transaction_type
 
         class ExpiratorValidator < ActiveModel::EachValidator
             def validate_each(record, attribute, value)
@@ -28,7 +28,7 @@ module Braspag
             validates :month, :expirator => { :on => check_on }
             validates :year, :presence => { :on => check_on }
             validates :year, :expirator => { :on => check_on }
-            validates :verification_value, :length => {:minimum => 1, :maximum => 4, :on => check_on }
+            validates :security_code, :length => {:minimum => 1, :maximum => 4, :on => check_on }
         end
 
     end
