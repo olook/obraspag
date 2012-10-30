@@ -18,16 +18,16 @@ module Braspag
             end
         end
 
-        validates :holder_name, :length => {:minimum => 1, :maximum => 100, :on => :authorize}
-        validates :number, :presence => { :on => :authorize }
-        validates :security_code, :presence => { :on => :authorize }
-        validates :number_of_payments, :presence => { :on => :authorize }
-        validates :payment_plan, :presence => { :on => :authorize }
-        validates :month, :presence => { :on => :authorize }
-        validates :month, :expirator => { :on => :authorize }
-        validates :year, :presence => { :on => :authorize }
-        validates :year, :expirator => { :on => :authorize }
-        validates :security_code, :length => {:minimum => 1, :maximum => 4, :on => :authorize }
+        validates :holder_name, :length => {:minimum => 1, :maximum => 100}
+        validates :number
+        validates :security_code, :presence => true
+        validates :number_of_payments, :presence => true
+        validates :payment_plan, :presence => true
+        validates :month, :presence => true
+        validates :month, :expirator
+        validates :year, :presence => true
+        validates :year, :expirator
+        validates :security_code, :length => {:minimum => 1, :maximum => 4,  :presence => true }
 
     end
 end
