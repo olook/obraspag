@@ -14,7 +14,7 @@ module Braspag
       self.order_data = Order.new
       self.payment_data_collection = []
       self.customer_data = []
-      self.version = '1.0'
+      self.version = CONTRACT_VERSION
     end
 
   end
