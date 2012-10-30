@@ -4,6 +4,8 @@ module Braspag
 
     attr_accessor :order_number, :payment_method, :customer
 
-    validates_presence_of :order_number
+    validates :order_number, :presence => true
+    validates :payment_method, :presence => true
+    validates :customer, :presence => true
   end
 end
