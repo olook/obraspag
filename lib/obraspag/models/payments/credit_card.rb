@@ -44,11 +44,3 @@ module Braspag
 
     end
 end
-
-module Braspag
-    class Billet < Payment
-        def to_hash
-            puts "hash for billet"
-        end
-    end
-end
