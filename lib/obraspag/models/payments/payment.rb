@@ -1,5 +1,5 @@
 module Braspag
-    class Payment
+  class Payment
 
-    end
+  end
 end

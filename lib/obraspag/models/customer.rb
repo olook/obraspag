@@ -1,6 +1,6 @@
 module Braspag
-    class Customer
-        attr_accessor :id, :name, :email
-    end
+  class Customer
+    attr_accessor :id, :name, :email
+  end
 end
 
