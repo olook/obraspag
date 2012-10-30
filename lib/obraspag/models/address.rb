@@ -1,5 +1,7 @@
 module Braspag
   class Address
+    include ::ActiveAttr::Model
+    
     attribute :street
     attribute :number
     attribute :complement

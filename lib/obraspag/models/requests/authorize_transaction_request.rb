@@ -21,14 +21,14 @@ module Braspag
     end
 
     def to_hash
-      #TODO: "ins0:CreditCardDataRequest" ???
       {
         "request" => {
           "RequestId" => self.request_id,
           "Version" =>self.version,
           "OrderData" => self.order_data.to_hash,
           "CustomerData" => self.customer_data.to_hash,
-          "PaymentDataCollection" => self.payment_data_collection.to_hash,
+          "PaymentDataCollection" => {
+            "PaymentDataRequest" => self.payment_data_collection.to_hash,
             :attributes! => { 
               "ins0:PaymentDataRequest" => { "xsi:type" => "ins0:CreditCardDataRequest" }
             }
