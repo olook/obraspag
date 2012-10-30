@@ -5,12 +5,12 @@ client = Savon::Client.new "https://homologacao.pagador.com.br/webservice/pagado
 capture_body = authorize_body = 
 	{
 		"request" => {
-			"RequestId" => "00000000-0000-0000-0000-000000000006",
+			"RequestId" => "00000000-0000-0000-0000-000000000007",
 	        "Version" =>"1.0",
 	        "MerchantId" => "540BA6EE-39D7-3DC1-D87D-7F82C49A3598",
 	        "TransactionDataCollection" => {
 	        	"TransactionDataRequest" => {
-	        		"BraspagTransactionId" => "dd1b2d7c-0dc8-4d22-8cae-0e571c033f37",
+	        		"BraspagTransactionId" => "170257b7-75f3-489e-933a-461ca2e44062",
 	        		"Amount" => "500"
 	        	}
 	        }

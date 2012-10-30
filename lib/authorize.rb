@@ -5,11 +5,11 @@ client = Savon::Client.new "https://homologacao.pagador.com.br/webservice/pagado
 authorize_body = 
 	{
 		"request" => {
-			"RequestId" => "00000000-0000-0000-0000-000000000006",
+			"RequestId" => "00000000-0000-0000-0000-000000000007",
 	        "Version" =>"1.0",
 			"OrderData" => {
 				"MerchantId" => "540BA6EE-39D7-3DC1-D87D-7F82C49A3598",
-				"OrderId" => "0005"
+				"OrderId" => "0006"
 			},
 			"CustomerData" => {
 				"CustomerIdentity" => "1234",
