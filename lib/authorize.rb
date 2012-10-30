@@ -2,14 +2,14 @@ require 'savon'
 
 client = Savon::Client.new "https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx?WSDL"
 
-body = 
+authorize_body = 
 	{
 		"request" => {
-			"RequestId" => "00000000-0000-0000-0000-000000000003",
+			"RequestId" => "00000000-0000-0000-0000-000000000006",
 	        "Version" =>"1.0",
 			"OrderData" => {
 				"MerchantId" => "540BA6EE-39D7-3DC1-D87D-7F82C49A3598",
-				"OrderId" => "0002"
+				"OrderId" => "0005"
 			},
 			"CustomerData" => {
 				"CustomerIdentity" => "1234",
@@ -25,7 +25,7 @@ body =
             		"State" => "SP",
             		"Country" => "Brasil"
           		},
-          		"CustomerAddressData" => {
+          		"DeliveryAddressData" => {
           			"Street" => "Rua de Casa",
             		"Number" => "123",
             		"Complement" => "",
@@ -61,7 +61,7 @@ body =
 	}
 
 response = client.request :authorize_transaction do
-	soap.body = body
+	soap.body = authorize_body
 end
 
 puts response.to_hash
