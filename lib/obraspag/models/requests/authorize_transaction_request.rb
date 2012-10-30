@@ -14,9 +14,6 @@ module Braspag
     validates :request_id, {:presence => true}
 
     def initialize
-      @order_data = Order.new
-      @payment_data_collection = Payment.new
-      @customer_data = Customer.new
       @version = CONTRACT_VERSION
     end
 
@@ -27,12 +24,7 @@ module Braspag
           "Version" =>self.version,
           "OrderData" => self.order_data.to_hash,
           "CustomerData" => self.customer_data.to_hash,
-          "PaymentDataCollection" => {
-            "PaymentDataRequest" => self.payment_data_collection.to_hash,
-            :attributes! => { 
-              "ins0:PaymentDataRequest" => { "xsi:type" => "ins0:CreditCardDataRequest" }
-            }
-          }
+          "PaymentDataCollection" =>  self.payment_data_collection.to_hash
         }
       }
     end
