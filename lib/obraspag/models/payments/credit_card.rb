@@ -1,6 +1,16 @@
 module Braspag
     class CreditCard < Payment
         include ::ActiveAttr::Model
+
+        attribute :holder_name
+        attribute :card_number
+        attribute :expiration_month
+        attribute :expiration_year
+        attribute :security_code
+        attribute :number_of_payments
+        attribute :payment_plan
+        attribute :transaction_type
+
         attr_accessor :holder_name, :card_number, :expiration_month, :expiration_year, :security_code, :number_of_payments, :payment_plan, :transaction_type
 
         class ExpiratorValidator < ActiveModel::EachValidator

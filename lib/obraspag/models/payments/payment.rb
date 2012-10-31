@@ -2,6 +2,11 @@ module Braspag
     class Payment
         include ::ActiveAttr::Model
         
+        attribute :payment_method
+        attribute :amount
+        attribute :currency
+        attribute :country
+
         attr_accessor :payment_method, :amount, :currency, :country
 
         validates :payment_method, :presence => true

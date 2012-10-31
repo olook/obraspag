@@ -8,6 +8,8 @@ module Braspag
     attribute :customer_address
     attribute :delivery_address
 
+    attr_accessor :id, :name, :email, :customer_address, :delivery_address
+
     validates :id, :presence => true
     validates :name, :presence => true
     validates :email, :presence => true
