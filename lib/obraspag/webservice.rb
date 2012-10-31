@@ -21,6 +21,12 @@ module Braspag
   		call_webservice(:refund_credit_card_transaction, refund_credit_card_transaction_request)
   	end
 
+    def checkout(authorize_transaction_request)
+        authorize_response = authorize_transaction(authorize_transaction_request)
+        capture_response = capture_credit_card_transaction(authorize_response)
+        return authorize_response#, capture_response
+    end
+
   	private
 
   	def call_webservice(method, request)

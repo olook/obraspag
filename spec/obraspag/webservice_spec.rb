@@ -29,13 +29,28 @@ describe Braspag::Webservice do
     authorize_request
   }
 
-  it "should instanciate with success" do
-    Braspag::Webservice.new(:homolog).should_not be_nil
+  context "on .new" do
+      it "should instanciate with success" do
+        Braspag::Webservice.new(:homolog).should_not be_nil
+      end
   end
 
-  it "shoud call autorize_transaction with success" do
-    pending
-    authorize = Braspag::Webservice.new(:homolog)
-    authorize.authorize_transaction(authorize_request).should be_true
+  context "should call authorize_request" do
+    let(:authorize)  { Braspag::Webservice.new(:homolog) }
+    hash1 = {:authorize_transaction_response=>{:authorize_transaction_result=>{:correlation_id=>"00000000-0000-0000-0000-000000000000", :success=>false, :error_report_data_collection=>{:error_report_data_response=>[{:error_code=>"100", :error_message=>"RequestId is a mandatory parameter"}, {:error_code=>"107", :error_message=>"PaymentDataCollection is a mandatory item"}]}}, :@xmlns=>"https://www.pagador.com.br/webservice/pagador"}}
+    hash2 = {  }
+    it "should call autorize_transaction with success" do
+      pending
+      authorize.authorize_transaction(authorize_request).should be_true
+    end
+
+    it "should call authorize_request and"
+
+    it "should call authorize_transaction and capture transaction on the same method" do
+        binding.pry
+        authorize.checkout(authorize_request).should eq([hash1, hash2])
+    end
   end
+
+
 end
