@@ -15,6 +15,7 @@ module Braspag
 
     def initialize
       @version = CONTRACT_VERSION
+      @payment_data_collection = []
     end
 
     def to_hash
@@ -24,7 +25,7 @@ module Braspag
           "Version" =>self.version,
           "OrderData" => self.order_data.to_hash,
           "CustomerData" => self.customer_data.to_hash,
-          "PaymentDataCollection" =>  self.payment_data_collection.to_hash
+          "PaymentDataCollection" =>  self.payment_data_collection
         }
       }
     end

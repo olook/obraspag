@@ -8,7 +8,7 @@ module Braspag
     def build
       raise 'Authorize Transaction Request is invalid.' unless @authorize_transaction_request.valid?
       raise 'Order data is invalid.' unless @authorize_transaction_request.order_data.valid?
-      raise 'Customer data is invalid.' unless @authorize_transaction_request.order_data.customer.valid?
+      raise 'Customer data is invalid.' unless @authorize_transaction_request.customer_data.valid?
       @authorize_transaction_request
     end
 
@@ -28,7 +28,7 @@ module Braspag
     end
 
     def with_payment_request(payment_request)
-      @authorize_transaction_request.payment_data_collection << payment_request
+      @authorize_transaction_request.payment_data_collection << payment_request.to_hash
       self
     end
 
