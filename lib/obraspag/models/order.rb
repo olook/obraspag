@@ -11,7 +11,7 @@ module Braspag
 
     def initialize(number)
       @number = number
-      @merchant_id = "540BA6EE-39D7-3DC1-D87D-7F82C49A3598"
+      @merchant_id = MERCHANT_ID
     end
 
     def to_hash

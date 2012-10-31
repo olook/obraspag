@@ -8,7 +8,7 @@ module Braspag
     end
 
     def call_webservice(method, body)
-      client = Savon::Client.new wsdl_url
+      client = ::Savon::Client.new wsdl_url
       client.http.read_timeout = 10000
       response = client.request method do
         soap.body = body

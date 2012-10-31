@@ -1,5 +1,6 @@
 require "rubygems"
 require "active_attr"
+require "savon"
 
 require "./lib/obraspag/webservice"
 require "./lib/obraspag/connection"
@@ -12,6 +13,7 @@ Dir["./lib/obraspag/models/payments/*.rb"].each {|file| require file }
 module Braspag
 
   CONTRACT_VERSION = '1.9'
+  MERCHANT_ID = "540BA6EE-39D7-3DC1-D87D-7F82C49A3598"
 
   PAYMENT_METHOD = {
     #CARDS - BRASIL
