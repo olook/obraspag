@@ -1,6 +1,6 @@
 module Braspag
   class Connection
-    HOMOLOG_URL = "https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx"
+    HOMOLOG_URL = "https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx?WSDL"
     PRODUCTION_URL = "production_url"
 
     def initialize(env = :production)
