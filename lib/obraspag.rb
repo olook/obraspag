@@ -2,13 +2,22 @@ require "rubygems"
 require "active_attr"
 require "savon"
 
-require "./lib/obraspag/webservice"
-require "./lib/obraspag/connection"
-require "./lib/obraspag/models/payments/payment"
-Dir["./lib/obraspag/builders/*.rb"].each {|file| require file }
-Dir["./lib/obraspag/models/*.rb"].each {|file| require file }
-Dir["./lib/obraspag/models/requests/*.rb"].each {|file| require file }
-Dir["./lib/obraspag/models/payments/*.rb"].each {|file| require file }
+require "obraspag/webservice"
+require "obraspag/connection"
+require "obraspag/builders/address_builder"
+require "obraspag/builders/authorize_transaction_request_builder"
+require "obraspag/builders/capture_credit_card_transaction_request_builder"
+require "obraspag/builders/credit_card_builder"
+require "obraspag/builders/customer_builder"
+require "obraspag/models/address"
+require "obraspag/models/customer"
+require "obraspag/models/order"
+require "obraspag/models/payments/payment"
+require "obraspag/models/payments/credit_card"
+require "obraspag/models/requests/authorize_transaction_request"
+require "obraspag/models/requests/capture_credit_card_transaction_request"
+require "obraspag/models/requests/refund_credit_card_transaction_request"
+require "obraspag/models/requests/void_credit_card_transaction_request"
 
 module Braspag
 
