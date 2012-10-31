@@ -24,7 +24,7 @@ describe Braspag::Webservice do
     authorize_request = Braspag::AuthorizeTransactionRequest.new
     authorize_request.request_id = "123"
     authorize_request.order_data = order
-    authorize_request.order_data = customer
+    authorize_request.customer_data = customer
     authorize_request
   }
 
