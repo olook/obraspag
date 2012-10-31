@@ -9,7 +9,7 @@
 ==Examples
 
 ===Method Authorize
-    Create a credit card transaction
+Create a credit card transaction
 
     order = Braspag::Order.new(0006)
 
