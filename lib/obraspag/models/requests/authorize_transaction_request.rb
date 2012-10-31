@@ -11,7 +11,8 @@ module Braspag
 
     attr_accessor :request_id, :version, :order_data, :payment_data_collection, :customer_data
 
-    validates :request_id, {:presence => true}
+    validates :request_id, {:presence => true, :length => {is: 36}}
+    validate :request_id_format?
 
     def initialize
       @version = CONTRACT_VERSION
@@ -28,6 +29,11 @@ module Braspag
           "PaymentDataCollection" =>  self.payment_data_collection
         }
       }
+    end
+
+    def request_id_format?
+      errors.add(:request_id_format , "O request id nao se encontra no formato {00000000-0000-0000-0000-000000000000}") if request_id && request_id.match(/\h{8}-\h{4}-\h{4}-\h{4}-\h{12}/).nil?
+      request_id.match(/\h{8}-\h{4}-\h{4}-\h{4}-\h{12}/) ? true : false unless request_id.nil?
     end
   end
 end

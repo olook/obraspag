@@ -36,7 +36,7 @@ describe Braspag::AuthorizeTransactionRequestBuilder do
 
   def complete_builder
     builder = Braspag::AuthorizeTransactionRequestBuilder.new
-    builder.with_request_id('1234')
+    builder.with_request_id('00000000-0000-0000-0000-000000000000')
     .for_order(Braspag::Order.new(1234))
     .for_customer(customer_builder.build)
     builder
