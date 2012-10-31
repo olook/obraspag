@@ -1,7 +1,7 @@
 module Braspag
   class Address
     include ::ActiveAttr::Model
-    
+
     attribute :street
     attribute :number
     attribute :complement
@@ -10,9 +10,8 @@ module Braspag
     attribute :city
     attribute :state
     attribute :country
-    attribute :address_type
 
-    attr_accessor :street, :number, :complement, :district, :zip_code, :city, :state, :country, :address_type
+    attr_accessor :street, :number, :complement, :district, :zip_code, :city, :state, :country
 
     def to_hash
       {
