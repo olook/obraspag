@@ -15,45 +15,45 @@ describe Braspag::CreditCard do
     end
 
     it "should not allow blank for number" do
-      subject.number = ''
+      subject.card_number = ''
       subject.valid?(:to_hash)
-      subject.errors.messages[:number].should include("can't be blank")
+      subject.errors.messages[:card_number].should include("can't be blank")
     end
 
     it "should not allow blank for month" do
-      subject.month = ''
+      subject.expiration_month = ''
       subject.valid?(:to_hash)
-      subject.errors.messages[:month].should include("can't be blank")
+      subject.errors.messages[:expiration_month].should include("can't be blank")
     end
 
     it "should not allow blank for year" do
-      subject.year = ''
+      subject.expiration_year = ''
       subject.valid?(:to_hash)
-      subject.errors.messages[:year].should include("can't be blank")
+      subject.errors.messages[:expiration_year].should include("can't be blank")
     end
 
     it "should not allow invalid date for month & year" do
-      subject.month = "14"
-      subject.year = "2012"
+      subject.expiration_month = "14"
+      subject.expiration_year = "2012"
       subject.valid?(:to_hash)
-      subject.errors.messages[:month].should include("invalid date")
-      subject.errors.messages[:year].should include("invalid date")
+      subject.errors.messages[:expiration_month].should include("invalid date")
+      subject.errors.messages[:expiration_year].should include("invalid date")
     end
 
     it "should allow valid date for month & year" do
-      subject.month = "09"
-      subject.year = "12"
+      subject.expiration_month = "09"
+      subject.expiration_year = "12"
       subject.valid?(:to_hash)
-      subject.errors.messages[:month].should be(nil)
-      subject.errors.messages[:year].should be(nil)
+      subject.errors.messages[:expiration_month].should be(nil)
+      subject.errors.messages[:expiration_year].should be(nil)
     end
 
     it "should allow valid date for month & year" do
-      subject.month = 12
-      subject.year = 2014
+      subject.expiration_month = 12
+      subject.expiration_year = 2014
       subject.valid?(:to_hash)
-      subject.errors.messages[:month].should be(nil)
-      subject.errors.messages[:year].should be(nil)
+      subject.errors.messages[:expiration_month].should be(nil)
+      subject.errors.messages[:expiration_year].should be(nil)
     end
 
     it "should allow valid security_code" do

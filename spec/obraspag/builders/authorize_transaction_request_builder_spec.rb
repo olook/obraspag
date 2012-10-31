@@ -26,9 +26,7 @@ describe Braspag::AuthorizeTransactionRequestBuilder do
     end
 
     it "should raise exception when Customer is not valid" do
-      order = order_builder
-      order.for_customer(nil)
-      subject.for_order(order)
+      subject.for_customer(nil)
       expect { subject.build }.to raise_error
     end
 
@@ -39,14 +37,7 @@ describe Braspag::AuthorizeTransactionRequestBuilder do
   def complete_builder
     builder = Braspag::AuthorizeTransactionRequestBuilder.new
     builder.with_request_id('1234')
-    .for_order(order_builder.build)
-    builder
-  end
-
-  def order_builder
-    builder = Braspag::OrderBuilder.new
-    builder.with_number(1234)
-    .with_payment_method(Braspag::PAYMENT_METHOD[:braspag])
+    .for_order(Braspag::Order.new(1234))
     .for_customer(customer_builder.build)
     builder
   end
