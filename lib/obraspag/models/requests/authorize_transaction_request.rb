@@ -11,7 +11,7 @@ module Braspag
 
     attr_accessor :request_id, :version, :order_data, :payment_data_collection, :customer_data
 
-    validates :request_id, {:presence => true}
+    validates :request_id, {:presence => true, :length => {is: 36}}
     validate :request_id_format?
 
     def initialize
