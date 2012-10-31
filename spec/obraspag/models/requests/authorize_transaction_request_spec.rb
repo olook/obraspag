@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Braspag::AuthorizeTransactionRequest do
     let(:request_object) {Braspag::AuthorizeTransactionRequest.new}
     let(:request_object_full) {
-        request_object.request_id = "1234"
+        request_object.request_id = "00000000-0000-0000-0000-000000000000"
         request_object
     }
 
