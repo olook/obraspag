@@ -8,6 +8,7 @@ module Braspag
     attr_accessor :number, :merchant_id
 
     validates :number, :presence => true
+    validates :merchant_id, :presence => true
 
     def initialize(number)
       @number = number
