@@ -31,4 +31,10 @@ describe Braspag::Webservice do
   it "should instanciate with success" do
     Braspag::Webservice.new(:homolog).should_not be_nil
   end
+
+  it "shoud call autorize_transaction with success" do
+    pending
+    authorize = Braspag::Webservice.new(:homolog)
+    authorize.authorize_transaction(authorize_request).should be_true
+  end
 end
