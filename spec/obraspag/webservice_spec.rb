@@ -18,13 +18,14 @@ describe Braspag::Webservice do
                   customer.name = "Matheus"
                   customer.email = "matheus.bodo@olook.com.br"
                   customer.customer_address = customer_address
+                  customer.delivery_address = customer_address
                   customer
   }
   let(:authorize_request) {
     authorize_request = Braspag::AuthorizeTransactionRequest.new
     authorize_request.request_id = "123"
     authorize_request.order_data = order
-    authorize_request.order_data = customer
+    authorize_request.customer_data = customer
     authorize_request
   }
 
