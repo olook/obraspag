@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
 
   s.homepage = "https://github.com/olook/obraspag"
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Obraspag", "--main", "README.rdoc"]
-  s.require_paths = ["lib"]
   s.rubyforge_project = "obraspag"
   s.rubygems_version = "1.8.24"
   s.summary = "API Braspag"
