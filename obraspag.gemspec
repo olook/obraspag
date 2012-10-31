@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.summary = "API Braspag"
 
   s.add_dependency 'savon', '>= 0.9.9'
-  s.add_dependency 'httpi', '>= 1.1.1'
+  s.add_dependency 'httpi', '>= 0.9.7'
   s.add_dependency 'json', '>= 1.6.1'
   s.add_dependency 'nokogiri', '>= 1.4.7'
   s.add_dependency 'active_attr', '>= 0.6'
