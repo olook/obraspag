@@ -8,7 +8,7 @@ describe Braspag::Connection do
     end
 
     it "should receive homolog url" do
-        Braspag::Connection.new(:homolog).wsdl_url.should eq("https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx")
+        Braspag::Connection.new(:homolog).wsdl_url.should eq("https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx?WSDL")
     end
   end
 

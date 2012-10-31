@@ -2,6 +2,9 @@ module Braspag
   class TransactionRequest
     include ::ActiveAttr::Model
 
+    attribute :braspag_transaction_id
+    attribute :amount
+
     attr_accessor :braspag_transaction_id, :amount
 
     validates :braspag_transaction_id, :presence => true
