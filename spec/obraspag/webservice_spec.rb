@@ -18,6 +18,7 @@ describe Braspag::Webservice do
                   customer.name = "Matheus"
                   customer.email = "matheus.bodo@olook.com.br"
                   customer.customer_address = customer_address
+                  customer.delivery_address = customer_address
                   customer
   }
   let(:authorize_request) {
