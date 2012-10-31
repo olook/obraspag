@@ -18,11 +18,11 @@ describe Braspag::Address do
       a.country = "Brazil"
 
       a
-     }
+    }
 
-      it "should validate a valid order" do
-        subject.valid?.should eq(true)
-      end
+    it "should validate a valid order" do
+      subject.valid?.should eq(true)
+    end
 
   end
 
