@@ -18,16 +18,12 @@ module Braspag
             end
         end
 
-        validates :holder_name, :length => {:minimum => 1, :maximum => 100, :on => :to_hash}
-        validates :card_number, :presence => { :on => :to_hash }
-        validates :security_code, :presence => { :on => :to_hash }
-        validates :number_of_payments, :presence => { :on => :to_hash }
-        validates :payment_plan, :presence => { :on => :to_hash }
-        validates :expiration_month, :presence => { :on => :to_hash }
-        validates :expiration_month, :expirator => { :on => :to_hash }
-        validates :expiration_year, :presence => { :on => :to_hash }
-        validates :expiration_year, :expirator => { :on => :to_hash }
-        validates :security_code, :length => {:minimum => 1, :maximum => 4, :on => :to_hash }
+        validates :holder_name, :card_number, :security_code, :number_of_payments, :payment_plan, :expiration_month, :expiration_year, { :presence => true }
+
+        validates :holder_name, :length => {:minimum => 1, :maximum => 100 }
+        validates :expiration_month, :expirator => { :on => :valid? }
+        validates :expiration_year, :expirator => { :on => :valid? }
+        validates :security_code, :length => {:minimum => 1, :maximum => 4 }
 
         def to_hash
             super({
