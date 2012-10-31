@@ -1,5 +1,5 @@
 =oBraspag
-===oBraspag is a simple gem to use Braspag Gateway.
+oBraspag is a simple gem to use Braspag Gateway.
 
 ==How to Install
 ===Add on your Gemfile
@@ -8,8 +8,8 @@
 
 ==Examples
 
-===Method Authorize
-Create a credit card transaction
+===Create a credit card transaction
+Method Authorize
 
     order = Braspag::Order.new(0006)
 
@@ -29,4 +29,11 @@ Create a credit card transaction
 
     webservice = Braspag::Webservice.new(:homolog)
     webservice.authorize_transaction(request)
+
+Method Capture
+    transaction_request = Braspag::TransactionRequest.new("540BA6EE-39D7-3DC1-D87D-7F82C49A3598", "500")
+    request = Braspag::CaptureCreditCardTransactionRequestBuilder.new.with_request_id("00000000-0000-0000-0000-000000000007")
+    .with_transaction_request(transaction_request).build
+    webservice = Braspag::Webservice.new(:homolog)
+    webservice.capture_credit_card_transaction(request)
 
