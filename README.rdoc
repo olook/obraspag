@@ -1,12 +1,12 @@
 =oBraspag
-    ==oBraspag is a simple gem to use Braspag Gateway.
+===oBraspag is a simple gem to use Braspag Gateway.
 
-=How to Install
-    Add on your Gemfile
+==How to Install
+===Add on your Gemfile
         gem 'obraspag', :git => 'git@github.com:olook/obraspag.git', :branch => 'master'
 
 
-Examples
+==Examples
 
     Create a credit card transaction
 
