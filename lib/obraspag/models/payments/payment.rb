@@ -1,10 +1,15 @@
 module Braspag
     class Payment
-        attr_accessor :customer_id, :payment_method, :amount, :currency, :country
+        include ::ActiveAttr::Model
+        
+        attr_accessor :payment_method, :amount, :currency, :country
+
+        validates :payment_method, :presence => true
+        validates :amount, :presence => true
+
         def to_hash(hash, payment_type)
             {
                 "PaymentDataRequest" =>  {
-                    "CustomerId"        => self.customer_id ,
                     "PaymentMethod"     => self.payment_method,
                     "Amount"            => self.amount,
                     "Currency"          => self.currency,
