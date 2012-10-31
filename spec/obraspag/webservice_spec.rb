@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Braspag::Webservice do
+  let(:authorize)  { Braspag::Webservice.new(:homolog) }
   let(:order) {Braspag::Order.new("123")}
   let(:customer_address) {address = Braspag::Address.new
                           address.street = "Rua surubim"
@@ -36,20 +37,30 @@ describe Braspag::Webservice do
   end
 
   context "should call authorize_request" do
-    let(:authorize)  { Braspag::Webservice.new(:homolog) }
-    hash1 = {:authorize_transaction_response=>{:authorize_transaction_result=>{:correlation_id=>"00000000-0000-0000-0000-000000000000", :success=>false, :error_report_data_collection=>{:error_report_data_response=>[{:error_code=>"100", :error_message=>"RequestId is a mandatory parameter"}, {:error_code=>"107", :error_message=>"PaymentDataCollection is a mandatory item"}]}}, :@xmlns=>"https://www.pagador.com.br/webservice/pagador"}}
-    hash2 = {  }
     it "should call autorize_transaction with success" do
       pending
       authorize.authorize_transaction(authorize_request).should be_true
     end
 
-    it "should call authorize_request and"
+  end
 
-    it "should call authorize_transaction and capture transaction on the same method" do
-        binding.pry
-        authorize.checkout(authorize_request).should eq([hash1, hash2])
-    end
+  context "on .checkout" do
+      authorize_response_failure = {:authorize_transaction_response=>{:authorize_transaction_result=>{:correlation_id=>"00000000-0000-0000-0000-000000000000", :success=>false, :error_report_data_collection=>{:error_report_data_response=>[{:error_code=>"100", :error_message=>"RequestId is a mandatory parameter"}, {:error_code=>"107", :error_message=>"PaymentDataCollection is a mandatory item"}]}}, :@xmlns=>"https://www.pagador.com.br/webservice/pagador"}}
+
+      authorize_response_success = {:authorize_transaction_response=>{:authorize_transaction_result=>{:correlation_id=>"00000000-0000-0000-0000-000000000007", :success=>true, :error_report_data_collection=>nil, :order_data=>{:order_id=>"45454545454545", :braspag_order_id=>"9bbdb10e-6566-4b34-9097-d595b67ce31d"}, :payment_data_collection=>{:payment_data_response=>{:braspag_transaction_id=>"a744d7c2-754a-4b26-94dd-e7f1435976ca", :payment_method=>"997", :amount=>"500", :acquirer_transaction_id=>"1031064345046", :authorization_code=>"20121031064345046", :return_code=>"4", :return_message=>"Operation Successful", :status=>"1", :credit_card_token=>nil, :"@xsi:type"=>"CreditCardDataResponse"}}}, :@xmlns=>"https://www.pagador.com.br/webservice/pagador"}}
+
+      capture_response_success = {:capture_credit_card_transaction_response=>{:capture_credit_card_transaction_result=>{:correlation_id=>"00000000-0000-0000-0000-000000000007", :success=>true, :error_report_data_collection=>nil, :transaction_data_collection=>{:transaction_data_response=>{:braspag_transaction_id=>"a744d7c2-754a-4b26-94dd-e7f1435976ca", :acquirer_transaction_id=>"1031064345046", :amount=>"500", :authorization_code=>"20121031065744906", :return_code=>"6", :return_message=>"Operation Successful", :status=>"0"}}}, :@xmlns=>"https://www.pagador.com.br/webservice/pagador"}}
+
+      it "should not call capture when authorize returns success false" do
+        authorize.stub(:authorize_transaction).and_return(authorize_response_failure)
+        authorize.checkout(authorize_request).should_not_receive(:capture_credit_card_transaction)
+     end
+
+      it "should call capture when authorize returns success true" do
+        authorize.stub(:authorize_transaction).and_return(authorize_response_success)
+        authorize.stub(:capture_credit_card_transaction).and_return(capture_response_success)
+        authorize.checkout(authorize_request).should eq([authorize_response_success,capture_response_success])
+     end
   end
 
 
