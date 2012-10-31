@@ -1,24 +1,9 @@
-require 'savon'
+require './lib/obraspag'
 
-client = Savon::Client.new "https://homologacao.pagador.com.br/webservice/pagadorTransaction.asmx?WSDL"
+transaction_request = Braspag::TransactionRequest.new("540BA6EE-39D7-3DC1-D87D-7F82C49A3598", "500")
 
-capture_body = authorize_body = 
-	{
-		"request" => {
-			"RequestId" => "00000000-0000-0000-0000-000000000007",
-	        "Version" =>"1.0",
-	        "MerchantId" => "540BA6EE-39D7-3DC1-D87D-7F82C49A3598",
-	        "TransactionDataCollection" => {
-	        	"TransactionDataRequest" => {
-	        		"BraspagTransactionId" => "170257b7-75f3-489e-933a-461ca2e44062",
-	        		"Amount" => "500"
-	        	}
-	        }
-	    }
-    }
+request = Braspag::CaptureCreditCardTransactionRequestBuilder.new.with_request_id("00000000-0000-0000-0000-000000000007")
+.with_transaction_request(transaction_request).build
 
-response = client.request :capture_credit_card_transaction do
-	soap.body = authorize_body
-end
-
-puts response.to_hash
+webservice = Braspag::Webservice.new(:homolog)
+webservice.capture_credit_card_transaction(request)
