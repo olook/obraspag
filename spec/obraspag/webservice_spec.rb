@@ -23,7 +23,7 @@ describe Braspag::Webservice do
   }
   let(:authorize_request) {
     authorize_request = Braspag::AuthorizeTransactionRequest.new
-    authorize_request.request_id = "123"
+    authorize_request.request_id = "00000000-0000-0000-0000-000000000000"
     authorize_request.order_data = order
     authorize_request.customer_data = customer
     authorize_request
