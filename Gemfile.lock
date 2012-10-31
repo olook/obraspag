@@ -3,7 +3,7 @@ PATH
   specs:
     obraspag (0.2.0)
       active_attr (>= 0.6)
-      httpi (>= 1.1.1)
+      httpi (>= 0.9.7)
       json (>= 1.6.1)
       nokogiri (>= 1.4.7)
       savon (>= 0.9.9)
