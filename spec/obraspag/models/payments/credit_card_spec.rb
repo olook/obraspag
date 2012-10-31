@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Braspag::CreditCard do
-  context "on .to_hash" do
+  context "on .valid?" do
     it "should validate minimum 1 length of holder_name" do
       subject.holder_name = ''
       subject.valid?
