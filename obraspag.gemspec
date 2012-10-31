@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-
+require "obraspag/version"
 
 Gem::Specification.new do |s|
   s.name = "obraspag"
-  s.version = "0.0.1"
+  s.version = Braspag::VERSION
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Olook", "Vinícius Monteiro", "Tiago Almeida", "Matheus Bodo"]
@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.description = "API Braspag"
   s.email = "development@olook.com.br"
   s.extra_rdoc_files = ["README.rdoc", "lib/obraspag.rb"]
-
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
