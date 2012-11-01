@@ -23,13 +23,17 @@ module Braspag
 
     def checkout(authorize_transaction_request)
         authorize_response = authorize_transaction(authorize_transaction_request)
-        if authorize_response[:authorize_transaction_response][:authorize_transaction_result][:success]
+        if response_success?(authorize_response)
             capture_request = create_capture_credit_card_request(authorize_response)
             capture_response = capture_credit_card_transaction(capture_request)
             [authorize_response, capture_response]
         else
             authorize_response
         end
+    end
+
+    def response_success?(authorize_response)
+        authorize_response[:authorize_transaction_response][:authorize_transaction_result][:success]
     end
 
     private
