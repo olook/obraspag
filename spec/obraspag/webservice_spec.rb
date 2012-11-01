@@ -61,6 +61,32 @@ describe Braspag::Webservice do
         authorize.stub(:capture_credit_card_transaction).and_return(capture_response_success)
         authorize.checkout(authorize_request).should eq([authorize_response_success,capture_response_success])
      end
+
+     it "should call capture with the correct request data" do
+      capture_request = Braspag::CaptureCreditCardTransactionRequest.new
+      authorize.stub(:authorize_transaction).and_return(authorize_response_success)
+      authorize.stub(:create_capture_credit_card_request).and_return(capture_request)
+      authorize.should_receive(:capture_credit_card_transaction).with(capture_request).and_return(capture_response_success)
+      authorize.checkout(authorize_request).should eq([authorize_response_success,capture_response_success])
+     end
+
+  end
+
+  context "on create_capture_credit_card_request" do
+    authorize_response = {:authorize_transaction_response=>{:authorize_transaction_result=>{:correlation_id=>"00000000-0000-0000-0000-000000000007", :success=>true, :error_report_data_collection=>nil, :order_data=>{:order_id=>"45454545454545", :braspag_order_id=>"9bbdb10e-6566-4b34-9097-d595b67ce31d"}, :payment_data_collection=>{:payment_data_response=>{:braspag_transaction_id=>"a744d7c2-754a-4b26-94dd-e7f1435976ca", :payment_method=>"997", :amount=>"500", :acquirer_transaction_id=>"1031064345046", :authorization_code=>"20121031064345046", :return_code=>"4", :return_message=>"Operation Successful", :status=>"1", :credit_card_token=>nil, :"@xsi:type"=>"CreditCardDataResponse"}}}, :@xmlns=>"https://www.pagador.com.br/webservice/pagador"}}
+
+
+    it "should create the request object with correct transaction request" do
+      request = authorize.send(:create_capture_credit_card_request, authorize_response)
+      request.transaction_data_collection[0]["TransactionDataRequest"]["BraspagTransactionId"].should eq("a744d7c2-754a-4b26-94dd-e7f1435976ca")
+      request.transaction_data_collection[0]["TransactionDataRequest"]["Amount"].should eq("500")
+    end
+
+    it "should create the request object with correct request_id" do
+      request = authorize.send(:create_capture_credit_card_request, authorize_response)
+      request.request_id.should eq("00000000-0000-0000-0000-000000000007")
+    end
+
   end
 
 

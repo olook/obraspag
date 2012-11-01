@@ -24,14 +24,23 @@ module Braspag
     def checkout(authorize_transaction_request)
         authorize_response = authorize_transaction(authorize_transaction_request)
         if authorize_response[:authorize_transaction_response][:authorize_transaction_result][:success]
-            capture_response = capture_credit_card_transaction(authorize_response)
+            capture_request = create_capture_credit_card_request(authorize_response)
+            capture_response = capture_credit_card_transaction(capture_request)
             [authorize_response, capture_response]
         else
             authorize_response
         end
     end
 
-  	private
+    private
+
+    def create_capture_credit_card_request(authorize_response)
+      braspag_transaction_id = authorize_response[:authorize_transaction_response][:authorize_transaction_result][:payment_data_collection][:payment_data_response][:braspag_transaction_id]
+      amount = authorize_response[:authorize_transaction_response][:authorize_transaction_result][:payment_data_collection][:payment_data_response][:amount]
+      request_id = authorize_response[:authorize_transaction_response][:authorize_transaction_result][:correlation_id]
+      transaction_request = Braspag::TransactionRequest.new(braspag_transaction_id, amount)
+      Braspag::CaptureCreditCardTransactionRequestBuilder.new.with_request_id(request_id).with_transaction_request(transaction_request).build
+    end
 
   	def call_webservice(method, request)
   		body = request.to_hash
