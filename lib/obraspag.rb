@@ -20,6 +20,14 @@ require "obraspag/models/requests/credit_card_transaction"
 
 module Braspag
 
+  def self.config_file_path=(path)
+    @config_path = path
+  end
+
+  def self.config_file_path
+    @config_path || 'config/braspag.yml'
+  end
+
   CONTRACT_VERSION = '1.9'
 
   options = YAML.load_file(Braspag.config_file_path)
@@ -58,8 +66,6 @@ module Braspag
     :braspag => 997
   }
 
-  def self.config_file_path
-    @config_path || 'config/braspag.yml'
-  end
+
 
 end
