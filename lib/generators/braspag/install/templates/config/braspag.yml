@@ -1,0 +1,9 @@
+development:
+  environment: "homologation"
+  merchant_id: "{YOUR_MERCHANT_ID_ON_BRASPAG}"
+
+test:
+  environment: "homologation"
+  merchant_id: "{YOUR_MERCHANT_ID_ON_BRASPAG}"
+
+production:
