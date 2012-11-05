@@ -1,7 +1,7 @@
 =oBraspag
 oBraspag is a simple gem to use Braspag Gateway.
 
-For Rails 3 app
+==For Rails 3 app
 
 ==How to Install
 ===Add on your Gemfile
