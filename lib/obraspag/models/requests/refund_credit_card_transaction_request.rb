@@ -11,7 +11,24 @@ module Braspag
 
     attr_accessor :request_id, :version, :merchant_id, :transaction_data_collection
 
-    validates :request_id, :version, :merchant_id, :transaction_data_collection , {:presence => true}
+    validates :request_id, :version, :merchant_id, {:presence => true}
+
+    def initialize
+      @merchant_id = MERCHANT_ID
+      @version = CONTRACT_VERSION
+      @transaction_data_collection = []
+    end
+
+    def to_hash
+      {
+        "request" => {
+          "RequestId" => self.request_id,
+          "Version" => self.version,
+          "MerchantId" => self.merchant_id,
+          "TransactionDataCollection" => self.transaction_data_collection
+        }
+      }
+    end
 
   end
 end
