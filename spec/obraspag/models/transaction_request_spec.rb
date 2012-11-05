@@ -15,10 +15,6 @@ describe Braspag::TransactionRequest do
         subject.valid?.should eq(false)
       end
 
-      it "should validate presence of amount" do
-        subject.amount = nil
-        subject.valid?.should eq(false)
-      end
   end
 
   context "generated hash validation" do
