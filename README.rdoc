@@ -47,3 +47,14 @@ Method Capture
 
     webservice.capture_credit_card_transaction(request)
 
+Method Void
+    supose that you make authorize method that return on hash:
+    BraspagTransactionId: "11111111-1111-1111-1111-111111111111"
+
+    request = Braspag::VoidCreditCardTransactionRequestBuilder.new
+    .with_request_id("00000000-0000-0000-0000-000000000009")
+    .with_transaction_data_collection(ta).build
+
+    webservice = Braspag::Webservice.new(:homolog)
+
+    webservice.void_credit_card_transaction(request)
