@@ -18,6 +18,7 @@ require "obraspag/models/payments/payment"
 require "obraspag/models/payments/credit_card"
 require "obraspag/models/requests/authorize_transaction_request"
 require "obraspag/models/requests/capture_credit_card_transaction_request"
+require "obraspag/models/requests/credit_card_transaction"
 require "obraspag/models/requests/refund_credit_card_transaction_request"
 require "obraspag/models/requests/void_credit_card_transaction_request"
 
