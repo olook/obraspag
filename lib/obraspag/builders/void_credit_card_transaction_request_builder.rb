@@ -18,7 +18,7 @@ module Braspag
     end
 
     def add_transaction_data_collection(transactions_data)
-      @void_credit_card_transaction_request.transaction_data_collection << transactions_data
+      @void_credit_card_transaction_request.transaction_data_collection << transactions_data.to_hash
       self
     end
   end

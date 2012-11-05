@@ -24,7 +24,7 @@ module Braspag
             "RequestId" => self.request_id,
             "Version" => self.version,
             "MerchantId" => self.merchant_id,
-            "TransactionDataRequest" => self.transaction_data_collection.to_hash
+            "TransactionDataRequest" => self.transaction_data_collection
         }
       }
     end
