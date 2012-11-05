@@ -1,4 +1,5 @@
 module Braspag
+
   class VoidCreditCardTransactionRequest
 
     include ::ActiveAttr::Model
@@ -14,8 +15,19 @@ module Braspag
     def initialize
       @merchant_id = MERCHANT_ID
       @version = CONTRACT_VERSION
+      @transaction_data_collection = []
     end
 
+    def to_hash
+      {
+        "request" => {
+            "RequestId" => self.request_id,
+            "Version" => self.version,
+            "MerchantId" => self.merchant_id,
+            "TransactionDataRequest" => self.transaction_data_collection.to_hash
+        }
+      }
+    end
 
   end
 end
