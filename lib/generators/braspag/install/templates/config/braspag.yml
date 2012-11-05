@@ -7,3 +7,5 @@ test:
   merchant_id: "{YOUR_MERCHANT_ID_ON_BRASPAG}"
 
 production:
+  environment: "production"
+  merchant_id: "{YOUR_MERCHANT_ID_ON_BRASPAG}"
