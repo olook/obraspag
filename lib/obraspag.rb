@@ -16,16 +16,15 @@ require "obraspag/models/transaction_request"
 require "obraspag/models/payments/payment"
 require "obraspag/models/payments/credit_card"
 require "obraspag/models/requests/authorize_transaction_request"
-#require "obraspag/models/requests/capture_credit_card_transaction_request"
 require "obraspag/models/requests/credit_card_transaction"
-#require "obraspag/models/requests/refund_credit_card_transaction_request"
-#require "obraspag/models/requests/void_credit_card_transaction_request"
 
 module Braspag
 
   CONTRACT_VERSION = '1.9'
-  MERCHANT_ID = "540BA6EE-39D7-3DC1-D87D-7F82C49A3598"
 
+  options = YAML.load_file(Braspag.config_file_path)
+
+  MERCHANT_ID = options['merchant_id']
   PAYMENT_METHOD = {
     #CARDS - BRASIL
     :amex_2p                  => 18,  # American Express 2 Party
@@ -58,5 +57,9 @@ module Braspag
     # STAGING
     :braspag => 997
   }
+
+  def self.config_file_path
+    @config_path || 'config/braspag.yml'
+  end
 
 end
