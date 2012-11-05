@@ -21,10 +21,10 @@ module Braspag
     def to_hash
       {
         "request" => {
-            "RequestId" => self.request_id,
-            "Version" => self.version,
-            "MerchantId" => self.merchant_id,
-            "TransactionDataRequest" => self.transaction_data_collection
+          "RequestId" => self.request_id,
+          "Version" => self.version,
+          "MerchantId" => self.merchant_id,
+          "TransactionDataCollection" => self.transaction_data_collection
         }
       }
     end
