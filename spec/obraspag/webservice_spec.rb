@@ -63,10 +63,10 @@ describe Braspag::Webservice do
      end
 
      it "should call capture with the correct request data" do
-      capture_request = Braspag::CaptureCreditCardTransactionRequest.new
+      credit_card_request = Braspag::CreditCardTransactionRequest.new
       authorize.stub(:authorize_transaction).and_return(authorize_response_success)
-      authorize.stub(:create_capture_credit_card_request).and_return(capture_request)
-      authorize.should_receive(:capture_credit_card_transaction).with(capture_request).and_return(capture_response_success)
+      authorize.stub(:create_capture_credit_card_request).and_return(credit_card_request)
+      authorize.should_receive(:capture_credit_card_transaction).with(credit_card_request).and_return(capture_response_success)
       authorize.checkout(authorize_request).should eq([authorize_response_success,capture_response_success])
      end
 
