@@ -1,8 +1,7 @@
 require 'spec_helper'
-require 'factories'
 
 describe Braspag::AuthorizeTransactionRequest do
-  let(:order) {orderrr}
+  let(:order) {Braspag::Order.new("123")}
   let(:customer_address) {address = Braspag::Address.new
                           address.street = "Rua surubim"
                           address.number = "159"
