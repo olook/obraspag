@@ -9,6 +9,7 @@ module Braspag
     def build
      raise 'Void Credit Card Transaction Request is invalid.' unless @void_credit_card_transaction_request.valid?
      raise 'Void Credit Card Transaction Request is invalid.' unless @void_credit_card_transaction_request.transaction_data_collection.valid?
+     raise 'Void Credit Card Transaction Data Collection is invalid.' unless @void_credit_card_transaction_request.transaction_data_collection.valid?
      @void_credit_card_transaction_request
     end
 
