@@ -1,10 +1,5 @@
 module Braspag
 
-    def self.merchant_id
-      options = YAML.load_file(Braspag.config_file_path)[Rails.env]
-      options['merchant_id']
-    end
-
   class Order
     include ::ActiveAttr::Model
 
@@ -18,7 +13,7 @@ module Braspag
 
     def initialize(number)
       @number = number
-      @merchant_id = Braspag.merchant_id
+      @merchant_id = self.merchant_id
     end
 
     def to_hash
@@ -27,6 +22,14 @@ module Braspag
         "OrderId" => self.number
       }
     end
-
+    def merchant_id
+      if YAML.load_file(Braspag.config_file_path).include?(:braspag)
+        options = YAML.load_file(Braspag.config_file_path)[Rails.env]
+        options['merchant_id']
+      else
+        options = YAML.load_file(Braspag.config_file_path)
+        options['development']['merchant_id']
+      end
+    end
   end
 end

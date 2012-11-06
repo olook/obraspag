@@ -18,7 +18,7 @@ describe Braspag::Order do
 	end
 
   context "generated hash validation" do
-    let(:expected_hash) { {"MerchantId"=>"540BA6EE-39D7-3DC1-D87D-7F82C49A3598", "OrderId"=>1234} }
+    let(:expected_hash) { {"MerchantId"=>"{84BE7E7F-698A-6C74-F820-AE359C2A07C2}", "OrderId"=>1234} }
     it "should generate the expected hash" do
       subject.to_hash.should eq(expected_hash)
     end

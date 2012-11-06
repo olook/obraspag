@@ -14,7 +14,7 @@ module Braspag
     validates :request_id, :version, :merchant_id, {:presence => true}
 
     def initialize
-      @merchant_id = MERCHANT_ID
+      @merchant_id = self.merchant_id
       @version = CONTRACT_VERSION
       @transaction_data_collection = []
     end
@@ -28,6 +28,16 @@ module Braspag
           "TransactionDataCollection" => self.transaction_data_collection
         }
       }
+    end
+
+    def merchant_id
+      if YAML.load_file(Braspag.config_file_path).include?(:braspag)
+        options = YAML.load_file(Braspag.config_file_path)[Rails.env]
+        options['merchant_id']
+      else
+        options = YAML.load_file(Braspag.config_file_path)
+        options['development']['merchant_id']
+      end
     end
   end
 end

@@ -43,7 +43,7 @@ describe Braspag::AuthorizeTransactionRequest do
     end
 
     it "should create a hash" do
-       authorize_request.to_hash.should eq({"request"=>{"RequestId"=>"00000000-0000-0000-0000-000000000000", "Version"=>"1.9", "OrderData"=>{"MerchantId"=>"540BA6EE-39D7-3DC1-D87D-7F82C49A3598", "OrderId"=>"123"}, "CustomerData"=>{"CustomerIdentity"=>"1", "CustomerName"=>"Matheus", "CustomerEmail"=>"matheus.bodo@olook.com.br", "CustomerAddressData"=>{"Street"=>"Rua surubim", "Number"=>"159", "Complement"=>"", "District"=>"SP", "ZipCode"=>"08730810", "City"=>"Sao Paulo", "State"=>"SP", "Country"=>"BR"}, "DeliveryAddressData"=>{"Street"=>"Rua surubim", "Number"=>"159", "Complement"=>"", "District"=>"SP", "ZipCode"=>"08730810", "City"=>"Sao Paulo", "State"=>"SP", "Country"=>"BR"}}, "PaymentDataCollection"=>[]}})
+       authorize_request.to_hash.should eq({"request"=>{"RequestId"=>"00000000-0000-0000-0000-000000000000", "Version"=>"1.9", "OrderData"=>{"MerchantId"=>"{84BE7E7F-698A-6C74-F820-AE359C2A07C2}", "OrderId"=>"123"}, "CustomerData"=>{"CustomerIdentity"=>"1", "CustomerName"=>"Matheus", "CustomerEmail"=>"matheus.bodo@olook.com.br", "CustomerAddressData"=>{"Street"=>"Rua surubim", "Number"=>"159", "Complement"=>"", "District"=>"SP", "ZipCode"=>"08730810", "City"=>"Sao Paulo", "State"=>"SP", "Country"=>"BR"}, "DeliveryAddressData"=>{"Street"=>"Rua surubim", "Number"=>"159", "Complement"=>"", "District"=>"SP", "ZipCode"=>"08730810", "City"=>"Sao Paulo", "State"=>"SP", "Country"=>"BR"}}, "PaymentDataCollection"=>[]}})
     end
 
 end

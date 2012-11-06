@@ -24,7 +24,7 @@ describe Braspag::CreditCardTransactionRequest do
     end
 
     it "should create a hash" do
-       authorize_request.to_hash.should eq({"request" => {"RequestId"=>"00000000-0000-0000-0000-000000000000", "Version"=>"1.9", "MerchantId"=>"540BA6EE-39D7-3DC1-D87D-7F82C49A3598", "TransactionDataCollection"=>[transaction_data]}})
+       authorize_request.to_hash.should eq({"request" => {"RequestId"=>"00000000-0000-0000-0000-000000000000", "Version"=>"1.9", "MerchantId"=>"{84BE7E7F-698A-6C74-F820-AE359C2A07C2}", "TransactionDataCollection"=>[transaction_data]}})
     end
 
 end
