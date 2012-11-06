@@ -1,4 +1,10 @@
 module Braspag
+
+    def self.merchant_id
+      options = YAML.load_file(Braspag.config_file_path)
+      options['merchant_id']
+    end
+
   class Order
     include ::ActiveAttr::Model
 
@@ -12,7 +18,7 @@ module Braspag
 
     def initialize(number)
       @number = number
-      @merchant_id = MERCHANT_ID
+      @merchant_id = Braspag.merchant_id
     end
 
     def to_hash

@@ -30,9 +30,6 @@ module Braspag
 
   CONTRACT_VERSION = '1.9'
 
-  #options = YAML.load_file(Braspag.config_file_path)
-
-  #MERCHANT_ID = options['merchant_id']
   PAYMENT_METHOD = {
     #CARDS - BRASIL
     :amex_2p                  => 18,  # American Express 2 Party
