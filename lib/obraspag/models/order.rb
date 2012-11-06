@@ -1,7 +1,7 @@
 module Braspag
 
     def self.merchant_id
-      options = YAML.load_file(Braspag.config_file_path)[ ENV['RAILS_ENV']]
+      options = YAML.load_file(Braspag.config_file_path)[ [Rails.env]]
       options['merchant_id']
     end
 
