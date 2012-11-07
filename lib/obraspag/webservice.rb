@@ -23,24 +23,39 @@ module Braspag
     end
 
     def checkout(authorize_transaction_request)
-        authorize_response = authorize_transaction(authorize_transaction_request)
-        checkout_response(authorize_response)
+        @authorize_response = authorize_transaction(authorize_transaction_request)
+        checkout_response
     end
 
     private
 
-    def checkout_response(authorize_response)
-      if response_success?(authorize_response)
-          capture_request = create_capture_credit_card_request(authorize_response)
+    def checkout_response
+      if response_success?
+          capture_request = create_capture_credit_card_request(@authorize_response)
           capture_response = capture_credit_card_transaction(capture_request)
-          { :authorize_response => authorize_response, :capture_response => capture_response }
+          { :authorize_response => @authorize_response, :capture_response => capture_response }
       else
-          { :authorize_response => authorize_response }
+          { :authorize_response => @authorize_response }
       end
     end
 
-    def response_success?(authorize_response)
-        authorize_response[:authorize_transaction_response][:authorize_transaction_result][:success]
+    def response_success?
+      response_hash_success && response_hash_status
+    end
+
+    def response_hash_success
+      @authorize_response.fetch(:authorize_transaction_response)
+                         .fetch(:authorize_transaction_result)
+                         .fetch(:success)
+    end
+
+    def response_hash_status
+      @authorize_response.fetch(:authorize_transaction_response)
+                         .fetch(:authorize_transaction_result)
+                         .fetch(:payment_data_collection)
+                         .fetch(:payment_data_response)
+                         .fetch(:status)
+                         .include?("1")
     end
 
     def create_capture_credit_card_request(authorize_response)
