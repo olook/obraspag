@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('obraspag', '0.1.0') do |p|
+Echoe.new('obraspag', '0.0.3') do |p|
   p.description    = "API Braspag"
   p.url            = "https://github.com/olook/obraspag"
   p.author         = "Olook"

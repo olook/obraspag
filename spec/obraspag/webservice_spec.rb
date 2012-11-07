@@ -59,7 +59,7 @@ describe Braspag::Webservice do
       it "should call capture when authorize returns success true" do
         authorize.stub(:authorize_transaction).and_return(authorize_response_success)
         authorize.stub(:capture_credit_card_transaction).and_return(capture_response_success)
-        authorize.checkout(authorize_request).should eq([authorize_response_success,capture_response_success])
+        authorize.checkout(authorize_request).should eq({:authorize_response => authorize_response_success, :capture_response => capture_response_success})
      end
 
      it "should call capture with the correct request data" do
@@ -67,7 +67,7 @@ describe Braspag::Webservice do
       authorize.stub(:authorize_transaction).and_return(authorize_response_success)
       authorize.stub(:create_capture_credit_card_request).and_return(credit_card_request)
       authorize.should_receive(:capture_credit_card_transaction).with(credit_card_request).and_return(capture_response_success)
-      authorize.checkout(authorize_request).should eq([authorize_response_success,capture_response_success])
+      authorize.checkout(authorize_request).should eq({:authorize_response => authorize_response_success, :capture_response => capture_response_success})
      end
 
   end

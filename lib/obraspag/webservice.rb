@@ -33,9 +33,9 @@ module Braspag
       if response_success?(authorize_response)
           capture_request = create_capture_credit_card_request(authorize_response)
           capture_response = capture_credit_card_transaction(capture_request)
-          [authorize_response, capture_response]
+          { :authorize_response => authorize_response, :capture_response => capture_response }
       else
-          authorize_response
+          { :authorize_response => authorize_response }
       end
     end
 
