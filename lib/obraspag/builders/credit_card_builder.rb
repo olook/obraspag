@@ -6,7 +6,7 @@ module Braspag
     end
 
     def build
-      raise "CreditCard data is invalid, Error: #{@credit_card.errors}." unless @credit_card.valid?
+      raise "CreditCard data is invalid, Error: #{@credit_card.errors.inspect}." unless @credit_card.valid?
       @credit_card
     end
 
