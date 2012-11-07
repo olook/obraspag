@@ -6,7 +6,7 @@ module Braspag
     end
 
     def build
-      raise 'Customer data is invalid.' unless @customer.valid?
+      raise "Customer data is invalid, Error: #{@customer.errors.inspect}." unless @customer.valid?
       @customer
     end
 

@@ -6,8 +6,8 @@ module Braspag
     end
 
     def build
-      raise 'Credit Card Transaction Request is invalid.' unless @credit_card_transaction_request.valid?
-      raise 'Credit Card Transaction Data Collection is empty.' if @credit_card_transaction_request.transaction_data_collection.empty?
+      raise "Credit Card Transaction Request is invalid, Error: #{@credit_card_transaction_request.errors.inspect}." unless @credit_card_transaction_request.valid?
+      raise "Credit Card Transaction Data Collection is empty." if @credit_card_transaction_request.transaction_data_collection.empty?
       @credit_card_transaction_request
     end
 

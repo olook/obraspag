@@ -6,7 +6,7 @@ module Braspag
     end
 
     def build
-      raise 'Address data is invalid.' unless @address.valid?
+      raise "Address data is invalid, Error: #{@address.errors.inspect}." unless @address.valid?
       @address
     end
 

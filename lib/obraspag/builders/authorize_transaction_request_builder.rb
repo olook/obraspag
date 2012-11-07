@@ -6,9 +6,9 @@ module Braspag
     end
 
     def build
-      raise 'Authorize Transaction Request is invalid.' unless @authorize_transaction_request.valid?
-      raise 'Order data is invalid.' unless @authorize_transaction_request.order_data.valid?
-      raise 'Customer data is invalid.' unless @authorize_transaction_request.customer_data.valid?
+      raise "Authorize Transaction Request is invalid, Error: #{@authorize_transaction_request.errors.inspect}.." unless @authorize_transaction_request.valid?
+      raise "Order data is invalid, Error: #{@authorize_transaction_request.order_data.errors.inspect}.." unless @authorize_transaction_request.order_data.valid?
+      raise "Customer data is invalid, Error: #{@authorize_transaction_request.customer_data.errors.inspect}.." unless @authorize_transaction_request.customer_data.valid?
       @authorize_transaction_request
     end
 
