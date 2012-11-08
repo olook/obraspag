@@ -24,13 +24,13 @@ module Braspag
 
     def checkout(authorize_transaction_request)
         @authorize_response = authorize_transaction(authorize_transaction_request)
-        checkout_response
+        process_authorize_response
     end
 
     private
 
-    def checkout_response
-      if response_success?
+    def process_authorize_response
+      if has_to_capture?
           capture_request = create_capture_credit_card_request(@authorize_response)
           capture_response = capture_credit_card_transaction(capture_request)
           { :authorize_response => @authorize_response, :capture_response => capture_response }
@@ -39,18 +39,18 @@ module Braspag
       end
     end
 
-    def response_success?
-      response_hash_success && response_hash_status
+    def has_to_capture?
+      successful_authorization?(@authorize_response) && authorization_not_captured?(@authorize_response)
     end
 
-    def response_hash_success
-      @authorize_response.fetch(:authorize_transaction_response)
+    def successful_authorization?(authorize_response)
+      authorize_response.fetch(:authorize_transaction_response)
                          .fetch(:authorize_transaction_result)
                          .fetch(:success)
     end
 
-    def response_hash_status
-      @authorize_response.fetch(:authorize_transaction_response)
+    def authorization_not_captured?(authorize_response)
+      authorize_response.fetch(:authorize_transaction_response)
                          .fetch(:authorize_transaction_result)
                          .fetch(:payment_data_collection)
                          .fetch(:payment_data_response)
