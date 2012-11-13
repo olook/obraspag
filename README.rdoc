@@ -13,8 +13,8 @@ oBraspag is a simple gem to use Braspag Gateway.
 ===Observation:
         If you have different ambience, you have to copy configs
         staging:
-                environment: "homologation"
-                merchant_id: "YOUR MERCHANT ID"
+          environment: "homologation"
+          merchant_id: "YOUR MERCHANT ID"
 
 ==Examples
 
