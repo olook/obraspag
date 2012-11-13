@@ -11,6 +11,10 @@ oBraspag is a simple gem to use Braspag Gateway.
         rails generate braspag:install
 
 ===Observation:
+        If you have different ambience, you have to copy configs
+        staging:
+                environment: "homologation"
+                merchant_id: "YOUR MERCHANT ID"
 
 ==Examples
 
