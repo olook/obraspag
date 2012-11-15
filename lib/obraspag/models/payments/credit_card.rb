@@ -44,7 +44,7 @@ module Braspag
                 "CardNumber"         => self.card_number.to_s,
                 "CardSecurityCode"   => self.security_code.to_s,
                 "CardExpirationDate" => "#{ self.expiration_month.to_s }/#{ self.expiration_year.to_s }"
-            },"ins0:CreditCardDataRequest")
+            },"wsdl:CreditCardDataRequest")
         end
 
     end
