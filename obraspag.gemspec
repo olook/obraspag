@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.24"
   s.summary = "API Braspag"
 
-  s.add_dependency 'savon', '>= 0.9.9'
+  s.add_dependency 'savon', '>= 1.2.0'
   s.add_dependency 'httpi', '>= 0.9.7'
   s.add_dependency 'json', '>= 1.6.1'
   s.add_dependency 'nokogiri', '>= 1.4.7'
