@@ -10,6 +10,12 @@ oBraspag is a simple gem to use Braspag Gateway.
 ===Create a config/braspag.yml file
         rails generate braspag:install
 
+===Observation:
+        If you have different ambience, you have to copy configs
+        staging:
+          environment: "homologation"
+          merchant_id: "YOUR MERCHANT ID"
+
 ==Examples
 
 ===Create a credit card transaction
