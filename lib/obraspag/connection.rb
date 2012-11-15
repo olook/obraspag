@@ -10,7 +10,7 @@ module Braspag
     def call_webservice(method, body)
       client = ::Savon::Client.new wsdl_url
       client.http.read_timeout = 10000
-      response = client.request :wsdl, method do
+      response = client.request method do
         soap.body = body
       end
       response.to_hash

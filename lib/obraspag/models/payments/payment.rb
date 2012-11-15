@@ -19,9 +19,9 @@ module Braspag
                     "Amount"            => self.amount,
                     "Currency"          => self.currency,
                     "Country"           => self.country,
-                    :attributes! => { "wsdl:AdditionalDataCollection" => { "xsi:nil" => "true" } }
+                    :attributes! => { "ins0:AdditionalDataCollection" => { "xsi:nil" => "true" } }
                 }.merge(hash),
-                :attributes! => { "wsdl:PaymentDataRequest" => { "xsi:type" => payment_type } }
+                :attributes! => { "ins0:PaymentDataRequest" => { "xsi:type" => payment_type } }
             }
         end
     end
