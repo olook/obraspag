@@ -36,7 +36,31 @@ describe Braspag::Customer do
   end
 
   context "generated hash validation" do
-    let(:expected_hash) { {"CustomerIdentity"=>"1", "CustomerName"=>"abc", "CustomerEmail"=>"jao@olook.com.br", "CustomerAddressData"=>{"Street"=>nil, "Number"=>nil, "Complement"=>nil, "District"=>nil, "ZipCode"=>nil, "City"=>nil, "State"=>nil, "Country"=>nil}, "DeliveryAddressData"=>{"Street"=>nil, "Number"=>nil, "Complement"=>nil, "District"=>nil, "ZipCode"=>nil, "City"=>nil, "State"=>nil, "Country"=>nil}} }
+    let(:expected_hash) { 
+      { :customer_identity =>"1", 
+        :customer_name =>"abc", 
+        :customer_email =>"jao@olook.com.br", 
+        :customer_address_data => {
+          :street =>nil, 
+          :number =>nil, 
+          :complement =>nil, 
+          :district =>nil, 
+          :zip_code =>nil, 
+          :city =>nil, 
+          :state =>nil, 
+          :country =>nil}, 
+        :delivery_address_data => {
+          :street =>nil, 
+          :number =>nil, 
+          :complement =>nil, 
+          :district =>nil, 
+          :zip_code =>nil, 
+          :city =>nil, 
+          :state =>nil, 
+          :country =>nil
+        }
+      } 
+    }
     it "should generate the expected hash" do
       subject.to_hash.should eq(expected_hash)
     end

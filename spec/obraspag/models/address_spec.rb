@@ -4,7 +4,15 @@ require 'spec_helper'
 describe Braspag::Address do
 
   context "to_hash tests" do
-    let(:expected_hash) { {"Street"=>"R. Jacu", "Number"=>"123", "Complement"=>"ap. 23", "District"=>"Itaim Paulista", "ZipCode"=>"03232-100", "City"=>"São Paulo", "State"=>"SP", "Country"=>"Brazil"} }
+    let(:expected_hash) { 
+      { :street => "R. Jacu", 
+        :number =>"123", 
+        :complement => "ap. 23", 
+        :district =>"Itaim Paulista", 
+        :zip_code =>"03232-100", 
+        :city =>"São Paulo", 
+        :state =>"SP", 
+        :country =>"Brazil"} }
     subject { 
 
       a = Braspag::Address.new

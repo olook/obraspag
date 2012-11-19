@@ -43,7 +43,42 @@ describe Braspag::AuthorizeTransactionRequest do
     end
 
     it "should create a hash" do
-       authorize_request.to_hash.should eq({"request"=>{"RequestId"=>"00000000-0000-0000-0000-000000000000", "Version"=>"1.9", "OrderData"=>{"MerchantId"=>"{84BE7E7F-698A-6C74-F820-AE359C2A07C2}", "OrderId"=>"123"}, "CustomerData"=>{"CustomerIdentity"=>"1", "CustomerName"=>"Matheus", "CustomerEmail"=>"matheus.bodo@olook.com.br", "CustomerAddressData"=>{"Street"=>"Rua surubim", "Number"=>"159", "Complement"=>"", "District"=>"SP", "ZipCode"=>"08730810", "City"=>"Sao Paulo", "State"=>"SP", "Country"=>"BR"}, "DeliveryAddressData"=>{"Street"=>"Rua surubim", "Number"=>"159", "Complement"=>"", "District"=>"SP", "ZipCode"=>"08730810", "City"=>"Sao Paulo", "State"=>"SP", "Country"=>"BR"}}, "PaymentDataCollection"=>[]}})
+       authorize_request.to_hash.should eq(
+        {"request" => { 
+          :request_id =>"00000000-0000-0000-0000-000000000000", 
+          :version =>"1.9", 
+          :order_data => { 
+            :merchant_id =>"{84BE7E7F-698A-6C74-F820-AE359C2A07C2}", 
+            :order_id =>"123"
+          }, 
+          :customer_data => {
+            :customer_identity =>"1", 
+            :customer_name =>"Matheus", 
+            :customer_email =>"matheus.bodo@olook.com.br", 
+            :customer_address_data =>{
+              :street =>"Rua surubim", 
+              :number =>"159", 
+              :complement =>"", 
+              :district =>"SP", 
+              :zip_code =>"08730810", 
+              :city =>"Sao Paulo", 
+              :state =>"SP", 
+              :country =>"BR"
+            }, 
+            :delivery_address_data =>{
+              :street =>"Rua surubim", 
+              :number =>"159", 
+              :complement =>"", 
+              :district =>"SP", 
+              :zip_code =>"08730810", 
+              :city =>"Sao Paulo", 
+              :state =>"SP", 
+              :country =>"BR"
+            }
+          }, 
+          :payment_data_collection =>[]
+        }
+      })
     end
 
 end
