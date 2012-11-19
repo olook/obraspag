@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    obraspag (0.0.8)
+    obraspag (0.0.13)
       active_attr (>= 0.6)
       httpi (>= 0.9.7)
       json (>= 1.6.1)
