@@ -16,8 +16,8 @@ module Braspag
 
     def to_hash
       transaction_hash = {
-        "TransactionDataRequest"  =>  {
-          "BraspagTransactionId"  => self.braspag_transaction_id,
+        :transaction_data_request  =>  {
+          :braspag_transaction_id  => self.braspag_transaction_id,
         }
       }
       transaction_hash["TransactionDataRequest"].merge!({ "Amount" => self.amount}) unless self.amount.blank?
