@@ -20,7 +20,6 @@ module Braspag
           :braspag_transaction_id  => self.braspag_transaction_id,
         }
       }
-      binding.pry
       transaction_hash[:transaction_data_request].merge!({ :amount => self.amount}) unless self.amount.blank?
       transaction_hash
     end
