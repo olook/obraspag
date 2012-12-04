@@ -31,13 +31,14 @@ module Braspag
     end
 
     def merchant_id
-      if YAML.load_file(Braspag.config_file_path).include?(:braspag)
-        options = YAML.load_file(Braspag.config_file_path)[Rails.env]
+      config_file = YAML.load_file(Braspag.config_file_path)
+      if config_file.include?(Rails.env)
+        options = config_file[Rails.env]
         options['merchant_id']
       else
-        options = YAML.load_file(Braspag.config_file_path)
-        options['development']['merchant_id']
+        config_file['development']['merchant_id']
       end
     end
+    
   end
 end
