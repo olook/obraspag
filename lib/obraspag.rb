@@ -41,6 +41,7 @@ module Braspag
     :redecard_visa            => 509,
     :redecard_mastercard      => 510,
     :redecard_diners          => 511,
+    :sitef_amex               => 526,
     :sitef_hipercard          => 528,
     :sitef_aura               => 530,
 
