@@ -14,14 +14,14 @@ module Braspag
 
         def to_hash(hash, payment_type)
             {
-                "PaymentDataRequest" =>  {
-                    "PaymentMethod"     => self.payment_method,
-                    "Amount"            => self.amount,
-                    "Currency"          => self.currency,
-                    "Country"           => self.country,
-                    :attributes! => { "ins0:AdditionalDataCollection" => { "xsi:nil" => "true" } }
+                :payment_data_request =>  {
+                    :payment_method     => self.payment_method,
+                    :amount            => self.amount,
+                    :currency          => self.currency,
+                    :country           => self.country,
+                    :attributes! => { :additional_data_collection => { "xsi:nil" => "true" } }
                 }.merge(hash),
-                :attributes! => { "ins0:PaymentDataRequest" => { "xsi:type" => payment_type } }
+                :attributes! => { :payment_data_request => { "xsi:type" => payment_type } }
             }
         end
     end

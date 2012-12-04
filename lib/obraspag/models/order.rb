@@ -18,8 +18,8 @@ module Braspag
 
     def to_hash
       {
-        "MerchantId" => self.merchant_id,
-        "OrderId" => self.number
+        :merchant_id => self.merchant_id,
+        :order_id => self.number
       }
     end
     def merchant_id

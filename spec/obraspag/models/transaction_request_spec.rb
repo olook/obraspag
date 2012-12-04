@@ -18,7 +18,12 @@ describe Braspag::TransactionRequest do
   end
 
   context "generated hash validation" do
-    let(:expected_hash) {{"TransactionDataRequest"=>{"BraspagTransactionId"=>123, "Amount"=>"123"}}}
+    let(:expected_hash) {
+      { :transaction_data_request => {
+          :braspag_transaction_id =>123, 
+          :amount => "123"}
+      }
+    }
     it "should generate the expected hash" do
       subject.to_hash.should eq(expected_hash)
     end

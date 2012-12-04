@@ -78,8 +78,8 @@ describe Braspag::Webservice do
 
     it "should create the request object with correct transaction request" do
       request = webservice.send(:create_capture_credit_card_request, authorize_response)
-      request.transaction_data_collection[0]["TransactionDataRequest"]["BraspagTransactionId"].should eq("a744d7c2-754a-4b26-94dd-e7f1435976ca")
-      request.transaction_data_collection[0]["TransactionDataRequest"]["Amount"].should eq("500")
+      request.transaction_data_collection[0][:transaction_data_request][:braspag_transaction_id].should eq("a744d7c2-754a-4b26-94dd-e7f1435976ca")
+      request.transaction_data_collection[0][:transaction_data_request][:amount].should eq("500")
     end
 
     it "should create the request object with correct request_id" do

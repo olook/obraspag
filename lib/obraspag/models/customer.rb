@@ -16,11 +16,11 @@ module Braspag
     
     def to_hash
       {
-        "CustomerIdentity" => self.id.to_s,
-        "CustomerName" => self.name,
-        "CustomerEmail" => self.email,
-        "CustomerAddressData" => self.customer_address.to_hash,
-        "DeliveryAddressData" => self.delivery_address.to_hash
+        :customer_identity => self.id.to_s,
+        :customer_name => self.name,
+        :customer_email => self.email,
+        :customer_address_data => self.customer_address.to_hash,
+        :delivery_address_data => self.delivery_address.to_hash
       }      
     end
 

@@ -37,14 +37,14 @@ module Braspag
 
         def to_hash
             super({
-                "NumberOfPayments"   => self.number_of_payments.to_s,
-                "PaymentPlan"        => self.payment_plan.to_s,
-                "TransactionType"    => self.transaction_type.to_s,
-                "CardHolder"         => self.holder_name.to_s,
-                "CardNumber"         => self.card_number.to_s,
-                "CardSecurityCode"   => self.security_code.to_s,
-                "CardExpirationDate" => "#{ self.expiration_month.to_s }/#{ self.expiration_year.to_s }"
-            },"ins0:CreditCardDataRequest")
+                :number_of_payments   => self.number_of_payments.to_s,
+                :payment_plan        => self.payment_plan.to_s,
+                :transaction_type    => self.transaction_type.to_s,
+                :card_holder         => self.holder_name.to_s,
+                :card_number         => self.card_number.to_s,
+                :card_security_code   => self.security_code.to_s,
+                :card_expiration_date => "#{ self.expiration_month.to_s }/#{ self.expiration_year.to_s }"
+            }, "wsdl:CreditCardDataRequest")
         end
 
     end
