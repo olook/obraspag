@@ -32,7 +32,7 @@ module Braspag
           Hash[params.map { |k,v| 
             if k == :card_number
               v = "XXXXXXXXXXXXXXXX"
-            elsif k == :security_code
+            elsif k == :card_security_code
               v = "XXX"
             end
             [k, remove_sensitive_data(v)] } ]
