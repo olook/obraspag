@@ -8,13 +8,13 @@ module Braspag
     end
 
     def call_webservice(method, body)
-      logger.info("Calling method #{method.try(:to_s)} with body: #{body.try(:to_s)}")
+      logger().info("Calling method #{method.try(:to_s)} with body: #{body.try(:to_s)}")
       client = ::Savon::Client.new wsdl_url
       client.http.read_timeout = 10000
       response = client.request :wsdl, method do
         soap.body = body
       end
-      logger.info("Response: #{response.try(:to_hash)}")
+      logger().info("Response: #{response.try(:to_hash)}")
       response.to_hash
     end
 
