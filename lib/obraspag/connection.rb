@@ -26,7 +26,7 @@ module Braspag
       @env == :production
     end
 
-    def def logger
+    def logger
       @@logger ||= Logger.new("#{Rails.root}/log/obraspag.log")
     end
   end
