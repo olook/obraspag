@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version = Braspag::VERSION
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Olook", "Vinícius Monteiro", "Tiago Almeida", "Matheus Bodo"]
+  s.authors = ["Olook", "Vinicius Monteiro", "Tiago Almeida", "Matheus Bodo"]
   s.date = "2012-10-29"
   s.description = "API Braspag"
   s.email = "development@olook.com.br"
