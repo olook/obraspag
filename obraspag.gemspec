@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'nokogiri', '= 1.6.1'
   s.add_dependency 'active_attr', '>= 0.6'
 
+
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
   s.add_development_dependency "simplecov"
