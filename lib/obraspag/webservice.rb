@@ -3,7 +3,8 @@ module Braspag
   class Webservice
 
     def initialize(env)
-      @connection = Braspag::Connection.new(env)
+      @env = env
+      @connection = Braspag::Connection.new(@env)
     end
 
     def authorize_transaction(authorize_transaction_request)
@@ -63,7 +64,7 @@ module Braspag
       amount = authorize_response[:authorize_transaction_response][:authorize_transaction_result][:payment_data_collection][:payment_data_response][:amount]
       request_id = authorize_response[:authorize_transaction_response][:authorize_transaction_result][:correlation_id]
       transaction_request = Braspag::TransactionRequest.new(braspag_transaction_id, amount)
-      Braspag::CreditCardTransactionRequestBuilder.new.with_request_id(request_id).with_transaction_request(transaction_request).build
+      Braspag::CreditCardTransactionRequestBuilder.new(@env).with_request_id(request_id).with_transaction_request(transaction_request).build
     end
 
     def call_webservice(method, request)

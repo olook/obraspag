@@ -21,7 +21,7 @@ oBraspag is a simple gem to use Braspag Gateway.
 ===Create a credit card transaction
 Method Authorize
 
-    order = Braspag::Order.new(0006)
+    order = Braspag::Order.new(0006, RAILS_ENV)
 
     address = Braspag::AddressBuilder.new.with_street("Rua dos Alfeneiros").with_number("123")
     .with_complement("").with_district("Pinheiros")

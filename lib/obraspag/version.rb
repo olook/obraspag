@@ -1,3 +1,3 @@
 module Braspag
-  VERSION = "0.0.31"
+  VERSION = "1.0.31"
 end
