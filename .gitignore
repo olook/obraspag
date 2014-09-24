@@ -3,3 +3,4 @@ pkg
 *.DS_Store
 *.swo
 .rvmrc
+.bundle
