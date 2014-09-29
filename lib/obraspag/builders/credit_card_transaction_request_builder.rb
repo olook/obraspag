@@ -1,8 +1,8 @@
 module Braspag
   class CreditCardTransactionRequestBuilder
 
-    def initialize
-      @credit_card_transaction_request = Braspag::CreditCardTransactionRequest.new
+    def initialize(env='test')
+      @credit_card_transaction_request = Braspag::CreditCardTransactionRequest.new(env)
     end
 
     def build

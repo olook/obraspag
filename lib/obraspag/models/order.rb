@@ -11,7 +11,8 @@ module Braspag
     validates :number, :presence => true
     validates :merchant_id, :presence => true
 
-    def initialize(number)
+    def initialize(number, env='test')
+      @env = env
       @number = number
       @merchant_id = self.merchant_id
     end
@@ -25,8 +26,8 @@ module Braspag
 
     def merchant_id
       config_file = YAML.load_file(Braspag.config_file_path)
-      if config_file.include?(Rails.env)
-        options = config_file[Rails.env]
+      if config_file.include?(@env)
+        options = config_file[@env]
         options['merchant_id']
       else
         config_file['development']['merchant_id']
