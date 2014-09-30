@@ -4,10 +4,12 @@ module Braspag
     PRODUCTION_URL = "https://transaction.pagador.com.br/webservice/pagadorTransaction.asmx?WSDL"
 
     def initialize(env = :production)
+      Gyoku.convert_symbols_to :camelcase
       @env = env
     end
 
     def call_webservice(method, body)
+
       logger().info("Calling method #{method.try(:to_s)} with body: #{remove_sensitive_data(body.dup)}")
       client = ::Savon.client(wsdl: wsdl_url, read_timeout: 600)
 

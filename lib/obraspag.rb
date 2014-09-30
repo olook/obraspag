@@ -27,7 +27,7 @@ module Braspag
   def self.config_file_path
     @config_path || 'config/braspag.yml'
   end
-
+  
   CONTRACT_VERSION = '1.9'
 
   PAYMENT_METHOD = {
