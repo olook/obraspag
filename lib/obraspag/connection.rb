@@ -9,11 +9,15 @@ module Braspag
 
     def call_webservice(method, body)
       logger().info("Calling method #{method.try(:to_s)} with body: #{remove_sensitive_data(body.dup)}")
-      client = ::Savon::Client.new wsdl_url
-      client.http.read_timeout = 600
-      response = client.request :wsdl, method do
-        soap.body = body
-      end
+      client = ::Savon.client(wsdl: wsdl_url, read_timeout: 600)
+
+      # client = ::Savon::Client.new wsdl_url
+      # client.http.read_timeout = 600
+      response = client.call(method, message: body)
+
+      # response = client.request :wsdl, method do
+      #   soap.body = body
+      # end
       logger().info("Response: #{response.try(:to_hash)}")
       response.to_hash
     end
