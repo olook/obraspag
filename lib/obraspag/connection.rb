@@ -4,7 +4,6 @@ module Braspag
     PRODUCTION_URL = "https://transaction.pagador.com.br/webservice/pagadorTransaction.asmx?WSDL"
 
     def initialize(env = :production)
-      Gyoku.convert_symbols_to :camelcase
       @env = env
     end
 

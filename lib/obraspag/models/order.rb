@@ -18,10 +18,10 @@ module Braspag
     end
 
     def to_hash
-      {
+      Gyoku.xml({
         :merchant_id => self.merchant_id,
         :order_id => self.number
-      }
+      }, { :key_converter => :camelcase })
     end
 
     def merchant_id

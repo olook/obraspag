@@ -21,7 +21,7 @@ module Braspag
         }
       }
       transaction_hash[:transaction_data_request].merge!({ :amount => self.amount}) unless self.amount.blank?
-      transaction_hash
+      Gyoku.xml(transaction_hash, { :key_converter => :camelcase })
     end
   end
 end

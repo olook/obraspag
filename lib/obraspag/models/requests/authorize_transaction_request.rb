@@ -20,7 +20,7 @@ module Braspag
     end
 
     def to_hash
-      {
+      Gyoku.xml({
         "request" => {
           :request_id => self.request_id,
           :version =>self.version,
@@ -28,7 +28,7 @@ module Braspag
           :customer_data => self.customer_data.to_hash,
           :payment_data_collection =>  self.payment_data_collection
         }
-      }
+      }, { :key_converter => :camelcase })
     end
 
     def request_id_format?

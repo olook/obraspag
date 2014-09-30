@@ -13,7 +13,7 @@ module Braspag
         validates :amount, :presence => true
 
         def to_hash(hash, payment_type)
-            {
+            Gyoku.xml({
                 :payment_data_request =>  {
                     :payment_method     => self.payment_method,
                     :amount            => self.amount,
@@ -22,7 +22,7 @@ module Braspag
                     :attributes! => { :additional_data_collection => { "xsi:nil" => "true" } }
                 }.merge(hash),
                 :attributes! => { :payment_data_request => { "xsi:type" => payment_type } }
-            }
+            }, { :key_converter => :camelcase })
         end
     end
 end
