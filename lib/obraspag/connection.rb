@@ -12,7 +12,7 @@ module Braspag
       logger().info("Calling method #{method.try(:to_s)} with body: #{remove_sensitive_data(body.dup)}")
       client = ::Savon.client(wsdl: wsdl_url, endpoint: wsdl_url, read_timeout: 600,pretty_print_xml: true, 
         log: true, 
-        log_level: :debug)
+        log_level: :debug, env_namespace: :soap)
 
       # client = ::Savon::Client.new wsdl_url
       # client.http.read_timeout = 600
