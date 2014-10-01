@@ -15,14 +15,14 @@ module Braspag
 
     def to_hash
       {
-        :street => self.street,
-        :number => self.number,
-        :complement => self.complement,
-        :district => self.district,
-        :zip_code => self.zip_code,
-        :city => self.city,
-        :state => self.state,
-        :country => self.country
+        "Street" => self.street,
+        "Number" => self.number,
+        "Complement" => self.complement,
+        "District" => self.district,
+        "ZipCode" => self.zip_code,
+        "City" => self.city,
+        "State" => self.state,
+        "Country" => self.country
       }
     end
   end
