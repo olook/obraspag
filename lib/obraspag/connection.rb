@@ -10,13 +10,13 @@ module Braspag
     def call_webservice(method, body)
 
       logger().info("Calling method #{method.try(:to_s)} with body: #{remove_sensitive_data(body.dup)}")
-      client = ::Savon.client(wsdl: wsdl_url, read_timeout: 600,pretty_print_xml: true, 
+      client = ::Savon.client(wsdl: wsdl_url,endpoint: wsdl_url, read_timeout: 600,pretty_print_xml: true, 
         log: true, 
         log_level: :debug)
 
       # client = ::Savon::Client.new wsdl_url
       # client.http.read_timeout = 600
-      response = client.call(method, message: body)
+      response = client.call(method, message: Gyoku.xml(body.to_hash,{ :key_converter => :camelcase })
 
       # response = client.request :wsdl, method do
       #   soap.body = body
