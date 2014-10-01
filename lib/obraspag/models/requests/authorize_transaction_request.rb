@@ -25,7 +25,7 @@ module Braspag
           "RequestId" => self.request_id,
           "Version" =>self.version,
           "OrderData" => self.order_data.to_hash,
-          "CustomerDate" => self.customer_data.to_hash,
+          "CustomerData" => self.customer_data.to_hash,
           "PaymentDataCollection" =>  self.payment_data_collection
         }
       }

@@ -16,7 +16,7 @@ module Braspag
 
       # client = ::Savon::Client.new wsdl_url
       # client.http.read_timeout = 600
-      response = client.call(method, message: Gyoku.xml(body.to_hash,{ :key_converter => :camelcase }))
+      response = client.call(method, message: Gyoku.xml(body.to_hash,{ :key_converter => :camelcase }), :attributes => { 'xmlns' => 'https://www.pagador.com.br/webservice/pagador' })
 
       # response = client.request :wsdl, method do
       #   soap.body = body
