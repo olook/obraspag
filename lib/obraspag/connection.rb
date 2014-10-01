@@ -16,7 +16,7 @@ module Braspag
 
       # client = ::Savon::Client.new wsdl_url
       # client.http.read_timeout = 600
-      response = client.call(method, message: body)
+      response = client.call(method, message: Gyoku.xml(body, { :key_converter => :camelcase }))
 
       # response = client.request :wsdl, method do
       #   soap.body = body

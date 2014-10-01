@@ -14,7 +14,7 @@ module Braspag
     attr_accessor :street, :number, :complement, :district, :zip_code, :city, :state, :country
 
     def to_hash
-      Gyoku.xml({
+      {
         :street => self.street,
         :number => self.number,
         :complement => self.complement,
@@ -23,7 +23,7 @@ module Braspag
         :city => self.city,
         :state => self.state,
         :country => self.country
-      }, { :key_converter => :camelcase })
+      }
     end
   end
 end
